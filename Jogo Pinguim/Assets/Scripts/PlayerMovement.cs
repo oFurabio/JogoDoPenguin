@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.AddForce(20f * moveSpeed * GetSlopeMoveDirection(moveDirection), ForceMode.Force);
 
             if (rb.velocity.y > 0) {
-                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+                rb.AddForce(Vector3.down * 100f, ForceMode.Force);
             }
         }
 
