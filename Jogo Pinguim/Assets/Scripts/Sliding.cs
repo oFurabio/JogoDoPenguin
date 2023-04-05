@@ -10,12 +10,9 @@ public class Sliding : MonoBehaviour {
     private PlayerMovement pm;
 
     [Header("Sliding")]
-    public float maxSlideTime;
+    private float maxSlideTime;
     public float slideForce;
     private float slideTimer;
-
-    public float slideYScale;
-    private float startYScale;
 
     [Header("Input")]
     public KeyCode slideKey = KeyCode.LeftControl;
@@ -24,9 +21,6 @@ public class Sliding : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
-
-        startYScale = playerObj.localScale.y;
-
     }
 
     private void Update() {
@@ -53,11 +47,7 @@ public class Sliding : MonoBehaviour {
     private void StartSlide() {
         pm.sliding = true;
 
-        playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
-        rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-
         slideTimer = maxSlideTime;
-
     }
 
     private void SlidingMovement() {
@@ -83,8 +73,6 @@ public class Sliding : MonoBehaviour {
 
     private void StopSlide() {
         pm.sliding = false;
-
-        playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
     }
 
 }

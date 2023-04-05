@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-
+        state = MovementState.walking;
     }
 
     private void Update() {
@@ -83,7 +83,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         MovePlayer();
-
     }
 
     private void MyInput() {
@@ -213,7 +212,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        SetText("Vloecidad: " + Mathf.Round(flatVel.magnitude));
+        SetText("Velocidade: " + Mathf.Round(flatVel.magnitude));
 
     }
 
