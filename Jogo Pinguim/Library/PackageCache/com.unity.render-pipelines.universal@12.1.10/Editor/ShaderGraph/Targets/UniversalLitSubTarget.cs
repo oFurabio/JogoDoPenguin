@@ -484,7 +484,6 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
                     displayName = "GBuffer",
                     referenceName = "SHADERPASS_GBUFFER",
                     lightMode = "UniversalGBuffer",
-                    useInPreview = true,
 
                     // Template
                     passTemplatePath = UniversalTarget.kUberTemplatePath,

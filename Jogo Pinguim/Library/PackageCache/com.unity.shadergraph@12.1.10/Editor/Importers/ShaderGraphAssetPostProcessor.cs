@@ -72,22 +72,18 @@ namespace UnityEditor.ShaderGraph
             if (anyRemovedShaders)
                 DisplayDeletionDialog(deletedAssets);
 
+            var windows = Resources.FindObjectsOfTypeAll<MaterialGraphEditWindow>();
+
             var changedGraphGuids = importedAssets
                 .Where(x => x.EndsWith(ShaderGraphImporter.Extension, StringComparison.InvariantCultureIgnoreCase)
                 || x.EndsWith(ShaderSubGraphImporter.Extension, StringComparison.InvariantCultureIgnoreCase))
                 .Select(AssetDatabase.AssetPathToGUID)
                 .ToList();
-
-            MaterialGraphEditWindow[] windows = null;
-            if (changedGraphGuids.Count > 0)
+            foreach (var window in windows)
             {
-                windows = Resources.FindObjectsOfTypeAll<MaterialGraphEditWindow>();
-                foreach (var window in windows)
+                if (changedGraphGuids.Contains(window.selectedGuid))
                 {
-                    if (changedGraphGuids.Contains(window.selectedGuid))
-                    {
-                        window.CheckForChanges();
-                    }
+                    window.CheckForChanges();
                 }
             }
 
@@ -101,10 +97,6 @@ namespace UnityEditor.ShaderGraph
 
             if (changedFileGUIDs.Count > 0)
             {
-                if (windows == null)
-                {
-                    windows = Resources.FindObjectsOfTypeAll<MaterialGraphEditWindow>();
-                }
                 foreach (var window in windows)
                 {
                     window.ReloadSubGraphsOnNextUpdate(changedFileGUIDs);
