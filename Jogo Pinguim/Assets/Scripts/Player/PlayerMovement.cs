@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     public float dashjumpForce = 10f;
     public float forwardForce = 25f;
     private bool canDash = true;
-    private Quaternion initialRotation; // Rotação inicial do jogador
 
     [Header("Teclas")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -37,10 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Checa o solo")]
     public float playerHeight = 0.0625f;
+    public float aBit = 0.5f;
     public LayerMask whatIsGround;
-    public float yOffset = 0.1f;
-    public float zOffset = 0.1f;
-    public float radius = 0.1f;
+    public float yOffset = -0.425f;
+    public float zOffset = -0.075f;
+    public float radius = 0.4f;
     [HideInInspector] public bool grounded = false;
 
     [Header("Inclinação")]
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         else
             grounded = Physics.CheckSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
 
-        if (!InterfaceManager.jogoPausado)
+        if (!InterfaceManager.jogoPausado && !InterfaceManager.fimDeJogo)
             MyInput();
 
         SpeedControl();
@@ -280,7 +280,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit))
         {
             angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
@@ -305,8 +305,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            yOffset = -0.425f;
-            zOffset = -0.075f;
+            yOffset = -0.325f;
+            zOffset = 0f;
         }
 
     }

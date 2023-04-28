@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.7z
+Jogo Pinguim/Library/PlayerDataCache/Win64/Data/sharedassets1.assets.resS
+Jogo Pinguim/Library/PlayerDataCache/Win64/Data/sharedassets1.assets.resS
+*.resS

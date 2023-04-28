@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 public class InterfaceManager : MonoBehaviour {
     public static bool jogoPausado = false;
     public static bool cursorVisivel = false;
+    public static bool fimDeJogo = false;
     public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes;
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cursorVisivel = false;
+        fimDeJogo = false;
     }
 
     void Update() {
-        if (Input.GetButtonDown("Cancel")) {
+        if (Input.GetButtonDown("Cancel") && !fimDeJogo) {
             if (!jogoPausado)
                 Pause();
             else
@@ -63,6 +65,7 @@ public class InterfaceManager : MonoBehaviour {
 
     public void Reiniciar() {
         jogoPausado = false;
+        fimDeJogo = false;
         CursorHandler();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -72,6 +75,11 @@ public class InterfaceManager : MonoBehaviour {
         if (confirmacaoMenu.activeInHierarchy) {
             confirmacaoMenu.SetActive(false);
             botoes.SetActive(true);
+            Resume();
+            CursorHandler();
+            SceneManager.LoadScene("Menu");
+        } else if (fimDeJogo) {
+            fimDeJogo = false;
             Resume();
             CursorHandler();
             SceneManager.LoadScene("Menu");
