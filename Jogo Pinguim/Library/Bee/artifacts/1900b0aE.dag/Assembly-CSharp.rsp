@@ -380,6 +380,7 @@
 "Assets/Scripts/Interface/VisualFeedback.cs"
 "Assets/Scripts/Player/AnimController.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
+"Assets/Scripts/Player/Quak.cs"
 "Assets/Scripts/Player/SetBaseMap.cs"
 "Assets/Scripts/Player/Sliding.cs"
 "Assets/Scripts/Player/Textos.cs"
