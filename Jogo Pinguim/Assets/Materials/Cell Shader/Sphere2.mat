@@ -46,5 +46,5 @@ Material:
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.9622641, g: 0.8449212, b: 0.16794229, a: 1}
-    - _SpecularColor: {r: 0.19461787, g: 0.7681514, b: 0.89626956, a: 1}
+    - _SpecularColor: {r: 0.40197787, g: 1, b: 0.79129815, a: 1}
   m_BuildTextureStacks: []
