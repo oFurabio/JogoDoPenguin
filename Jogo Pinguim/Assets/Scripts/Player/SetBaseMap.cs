@@ -5,10 +5,10 @@ using UnityEngine;
 public class SetBaseMap : StateMachineBehaviour
 {
     [SerializeField] Material material;
-    [SerializeField] Texture2D baseMap;
+    [SerializeField] Texture2D mainTex;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        material.SetTexture("_BaseMap", baseMap);
+        material.SetTexture("_MainTex", mainTex);
     }
 }

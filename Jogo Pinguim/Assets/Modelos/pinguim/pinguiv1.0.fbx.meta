@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: corpo
-    second: {fileID: 2100000, guid: a278d482f8ff64f4cb7faa464ad9f3a6, type: 2}
+    second: {fileID: 2100000, guid: fc00b300fb64506498fe5b2896672b66, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rosto
-    second: {fileID: 2100000, guid: 60ef697eacda8e641a73ec40035dcf6d, type: 2}
+    second: {fileID: 2100000, guid: 57c389139bc470645be105bf52bf3944, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
@@ -39,7 +39,8 @@ ModelImporter:
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - Armature/coluna/coluna.001/coluna.002/coluna.003/pescoco/cabeca/cabeca_end
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
