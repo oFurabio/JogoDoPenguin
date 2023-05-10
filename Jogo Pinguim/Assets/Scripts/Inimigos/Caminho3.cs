@@ -38,12 +38,4 @@ public class Caminho3 : MonoBehaviour {
         Vector3 direction = waypointList[currentWaypoint].position - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
     }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Player")) {
-            if(pm.sliding)
-                Destroy(gameObject);
-        }
-    }
-
 }

@@ -105,9 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (sliding)
         {
-            //playerObj.transform.rotation = Quaternion.Euler(rotationAngle, playerObj.rotation.y, playerObj.rotation.z);
-            slidingRotation = Quaternion.Euler(rotationAngle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
-            playerObj.transform.rotation = Quaternion.Lerp(playerObj.transform.rotation, slidingRotation, slideSpeed * Time.deltaTime);
+            playerObj.transform.rotation = Quaternion.Euler(90f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
 
         }
     }

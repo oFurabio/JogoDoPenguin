@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    private int currentHealth;
+    public int currentHealth;
     public int maxHealth = 3;
     public static bool dead = false;
 

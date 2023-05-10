@@ -1,9 +1,15 @@
 {
-    "m_SGVersion": 2,
+    "m_SGVersion": 3,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "5e52377be10145cbacd9cd9e079de0b1",
     "m_Properties": [],
     "m_Keywords": [],
+    "m_Dropdowns": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "14052bde46db49d1a4132d0ac84530d9"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "4dbd150872304dea88ab80dffa99e857"
@@ -665,10 +671,11 @@
         "serializedMesh": {
             "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
             "m_Guid": ""
-        }
+        },
+        "preventRotation": false
     },
     "m_Path": "Sub Graphs",
-    "m_ConcretePrecision": 0,
+    "m_GraphPrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": "4dbd150872304dea88ab80dffa99e857"
@@ -1009,6 +1016,14 @@
 }
 
 {
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "14052bde46db49d1a4132d0ac84530d9",
+    "m_Name": "",
+    "m_ChildObjectList": []
+}
+
+{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.PositionNode",
     "m_ObjectId": "17ce6f8f8079439f9806dd1691730bfe",
@@ -1038,7 +1053,8 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2
+    "m_Space": 2,
+    "m_PositionSource": 0
 }
 
 {
@@ -2615,7 +2631,9 @@
     "m_PropertyIds": [
         892664360,
         430740884
-    ]
+    ],
+    "m_Dropdowns": [],
+    "m_DropdownSelectedEntries": []
 }
 
 {
@@ -3396,7 +3414,9 @@
     "m_PropertyIds": [
         892664360,
         430740884
-    ]
+    ],
+    "m_Dropdowns": [],
+    "m_DropdownSelectedEntries": []
 }
 
 {
@@ -3639,7 +3659,9 @@
     "m_PropertyIds": [
         892664360,
         430740884
-    ]
+    ],
+    "m_Dropdowns": [],
+    "m_DropdownSelectedEntries": []
 }
 
 {
@@ -3785,7 +3807,9 @@
     "m_PropertyIds": [
         892664360,
         430740884
-    ]
+    ],
+    "m_Dropdowns": [],
+    "m_DropdownSelectedEntries": []
 }
 
 {
