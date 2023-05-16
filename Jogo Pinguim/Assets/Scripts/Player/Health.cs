@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    public int currentHealth;
-    public int maxHealth = 3;
+    [HideInInspector] public int currentHealth;
+    public int maxHealth = 1;
     public static bool dead = false;
 
     private void Start() {

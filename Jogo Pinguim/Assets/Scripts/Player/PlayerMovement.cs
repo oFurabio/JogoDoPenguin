@@ -106,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
         if (sliding)
         {
             playerObj.transform.rotation = Quaternion.Euler(90f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
-
         }
     }
 
@@ -133,8 +132,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(slideKey) && sliding)
             StopSlide();
 
-        /*if (hInput == 0 && vInput == 0)
-            StopSlide();*/
+        if (hInput == 0 && vInput == 0)
+            StopSlide();
 
     }
 
@@ -284,8 +283,6 @@ public class PlayerMovement : MonoBehaviour
             return angle < maxSlopeAngle && angle != 0;
         }
 
-        rotationAngle = 90 - (angle - GetSlopeMoveDirection(moveDirection).y);
-
         return false;
     }
 
@@ -339,6 +336,7 @@ public class PlayerMovement : MonoBehaviour
     private void StopSlide()
     {
         sliding = false;
+        playerObj.transform.rotation = Quaternion.Euler(0f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
         OffsetHandler();
 
         if (grounded)

@@ -23,12 +23,11 @@ public class AudioController : MonoBehaviour
             isPlaying = true;
 
             // Desativar o som após 1 segundo
-            Invoke("DisableSound", 1f);
+            Invoke(nameof(DisableSound), 1f);
         }
     }
 
-    void DisableSound()
-    {
+    void DisableSound() {
         // Parar o som e definir isPlaying como false
         audioSource.Stop();
         isPlaying = false;
