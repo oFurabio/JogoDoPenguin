@@ -6,8 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimento")]
     private float moveSpeed;
+    [Range(1f, 20f)]
     public float walkSpeed = 5f;
+    [Range(1f, 20f)]
     public float slideSpeed = 10f;
+    [Range(1f, 20f)]
     public float slideTopSpeed = 15f;
 
     private float desiredMoveSpeed;
@@ -19,14 +22,18 @@ public class PlayerMovement : MonoBehaviour
     public float groundDrag = 4f;
 
     [Header("Salto")]
+    [Range(1f, 20f)]
     public float jumpForce = 12f;
+    [Range(1f, 15f)]
     public float secondJumpForce = 7f;
     public float airMultiplier = 0.4f;
     bool readyToJump = true;
 
     [Header("Deslizando")]
     public float slideForce = 50f;
+    [Range(1f, 15f)]
     public float dashjumpForce = 10f;
+    [Range(1f, 30f)]
     public float forwardForce = 25f;
     private bool canDash = true;
 
@@ -38,15 +45,16 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight = 0.0625f;
     public float aBit = 0.5f;
     public LayerMask whatIsGround;
-    public float yOffset = -0.425f;
-    public float zOffset = -0.075f;
+    public float yOffset = 0f;
+    public float zOffset = 0f;
     public float radius = 0.4f;
     [HideInInspector] public bool grounded = false;
 
     [Header("Inclinação")]
     private float rotationAngle;
+    [Range(0f, 90f)]
     public float maxSlopeAngle = 40f;
-    [SerializeField] private float angle = 0;
+    //[SerializeField] private float angle = 0;
     private RaycastHit slopeHit;
     private bool exitingSlope = false;
 
@@ -77,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        yOffset = -0.325f;
+        zOffset = 0f;
         //rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
@@ -210,6 +220,8 @@ public class PlayerMovement : MonoBehaviour
         //  Na inclinação
         if (OnSlope() && !exitingSlope)
         {
+            Debug.Log("Na inclinação");
+
             rb.AddForce(20f * moveSpeed * GetSlopeMoveDirection(moveDirection), ForceMode.Force);
 
             if (rb.velocity.y > 0)
@@ -275,19 +287,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool OnSlope()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit))
-        {
-            angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+    public bool OnSlope() {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit)) {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
 
         return false;
     }
 
-    public Vector3 GetSlopeMoveDirection(Vector3 direction)
-    {
+    public Vector3 GetSlopeMoveDirection(Vector3 direction) {
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
@@ -306,9 +315,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void StartSlide()
-    {
-
+    private void StartSlide() {
         if (canDash)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -355,7 +362,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("sliding", sliding);
         animator.SetBool("grounded", grounded);
 
-        if (state == MovementState.andando && (vInput != 0 || hInput != 0 || vInput != 0 && hInput != 0))
+        if (state == MovementState.andando && (vInput != 0 || hInput != 0))
         {
             animator.SetBool("walk", true);
         }

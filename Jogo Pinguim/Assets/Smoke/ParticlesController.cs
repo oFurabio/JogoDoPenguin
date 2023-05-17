@@ -15,12 +15,12 @@ public class ParticlesController : MonoBehaviour
 
     void Update()
     {
-        if (pm.grounded && pm.sliding && (rb.velocity.x > 0 || rb.velocity.z > 0 || rb.velocity.x > 0 && rb.velocity.z > 0) && !walkSmokeToggle)
+        if (pm.grounded && pm.sliding && rb.velocity.magnitude > 0.1f && !walkSmokeToggle)
         {
             walkSmoke.Play();
             walkSmokeToggle = true;
         }
-        else if ((rb.velocity.x == 0 || rb.velocity.z == 0 || rb.velocity.x == 0 && rb.velocity.z == 0) && walkSmokeToggle)
+        else if (rb.velocity.magnitude < 0.1f && walkSmokeToggle)
         {
             walkSmoke.Stop();
             walkSmokeToggle = false;
