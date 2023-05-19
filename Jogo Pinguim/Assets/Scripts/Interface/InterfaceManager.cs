@@ -3,21 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InterfaceManager : MonoBehaviour {
+public class InterfaceManager : MonoBehaviour
+{
     public static bool jogoPausado = false;
     public static bool cursorVisivel = false;
     public static bool fimDeJogo = false;
-    public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes;
+    private bool respawnando = false;
+    private Health health;
+    public Transform player;
+    public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes, developer;
 
-    private void Start() {
+    private void Start()
+    {
+        GameObject player = GameObject.Find("Player"); // Assuming the Player GameObject has the "Player" tag assigned
+        health = player.GetComponent<Health>();
         Cursor.lockState = CursorLockMode.Locked;
+        respawnando = false;
         Cursor.visible = false;
         cursorVisivel = false;
         fimDeJogo = false;
     }
 
-    void Update() {
-        if (Input.GetButtonDown("Cancel") && !fimDeJogo) {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            if (developer.activeInHierarchy)
+            {
+                developer.SetActive(false);
+            } else {
+                developer.SetActive(true);
+            }
+        }
+
+        if (fimDeJogo && !respawnando)
+        {
+            respawnando = true;
+            FimDeJogo();
+        }
+            
+
+        if (Input.GetButtonDown("Cancel") && !fimDeJogo)
+        {
             if (!jogoPausado)
                 Pause();
             else
@@ -25,14 +52,16 @@ public class InterfaceManager : MonoBehaviour {
         }
     }
 
-    private void Pause() {
+    private void Pause()
+    {
         jogoPausado = true;
         CursorHandler();
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
     }
 
-    public void Resume() {
+    public void Resume()
+    {
         jogoPausado = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -43,27 +72,36 @@ public class InterfaceManager : MonoBehaviour {
         botoes.SetActive(true);
     }
 
-    public void CursorHandler() {
-        if (cursorVisivel) {
+    public void CursorHandler()
+    {
+        if (cursorVisivel)
+        {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        } else {
+        }
+        else
+        {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
     }
 
-    public void OpenConfig() {
-        if (!configuracoesMenu.activeInHierarchy) {
+    public void OpenConfig()
+    {
+        if (!configuracoesMenu.activeInHierarchy)
+        {
             pauseMenu.SetActive(false);
             configuracoesMenu.SetActive(true);
-        } else {
+        }
+        else
+        {
             configuracoesMenu.SetActive(false);
             pauseMenu.SetActive(true);
         }
     }
 
-    public void Reiniciar() {
+    public void Reiniciar()
+    {
         jogoPausado = false;
         fimDeJogo = false;
         CursorHandler();
@@ -71,15 +109,12 @@ public class InterfaceManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void MenuPrincipal() {
-        if (confirmacaoMenu.activeInHierarchy) {
+    public void MenuPrincipal()
+    {
+        if (confirmacaoMenu.activeInHierarchy)
+        {
             confirmacaoMenu.SetActive(false);
             botoes.SetActive(true);
-            Resume();
-            CursorHandler();
-            SceneManager.LoadScene("Menu");
-        } else if (fimDeJogo) {
-            fimDeJogo = false;
             Resume();
             CursorHandler();
             SceneManager.LoadScene("Menu");
@@ -89,22 +124,51 @@ public class InterfaceManager : MonoBehaviour {
         }
     }
 
-    public void SairDoJogo() {
-        if (confirmacao.activeInHierarchy) {
+    public void SairDoJogo()
+    {
+        if (confirmacao.activeInHierarchy)
+        {
             confirmacao.SetActive(false);
             botoes.SetActive(true);
             Debug.Log("Jogo fechado");
             Application.Quit();
-        } else {
+        }
+        else
+        {
             botoes.SetActive(false);
             confirmacao.SetActive(true);
         }
 
     }
 
-    public void Cancelar() {
+    public void Cancelar()
+    {
         confirmacao.SetActive(false);
         confirmacaoMenu.SetActive(false);
         botoes.SetActive(true);
+    }
+
+    public bool PodeMover()
+    {
+        if (jogoPausado || fimDeJogo)
+            return false;
+
+        return true;
+    }
+
+    public void Respawn()
+    {
+        Debug.Log("Respawning...");
+        player.transform.position = new(0f, 1f, -15f);
+        fimDeJogo = false;
+        Health.dead = false;
+        health.currentHealth = 1;
+        respawnando = false;
+
+    }
+
+    private void FimDeJogo()
+    {
+        Invoke(nameof(Respawn), 3f);
     }
 }

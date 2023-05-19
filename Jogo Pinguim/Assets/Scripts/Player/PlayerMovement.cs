@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     float hInput, vInput;
 
     [Header("Referências")]
+    public InterfaceManager im;
     public Transform orientation;
     public Animator animator;
     public Transform playerObj;
@@ -92,20 +93,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!sliding)
-            grounded = Physics.CheckSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
-        else
-            grounded = Physics.CheckSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
+        if (Health.dead)
+        {
+            vInput = 0f;
+            hInput = 0f;
+        }
 
-        if (!InterfaceManager.jogoPausado && !InterfaceManager.fimDeJogo)
+        grounded = Physics.CheckSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
+
+        if(im.PodeMover())
             MyInput();
 
         SpeedControl();
         StateHandler();
         Animacao();
 
-        if (grounded)
-        {
+        if (grounded) {
             rb.drag = groundDrag;
             canDash = true;
             readyToJump = true;
@@ -114,9 +117,7 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = 0;
 
         if (sliding)
-        {
-            playerObj.transform.rotation = Quaternion.Euler(90f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
-        }
+            Rotacionar();
     }
 
     private void FixedUpdate()
@@ -375,4 +376,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("dead", Health.dead);
     }
 
+    private void Rotacionar()
+    {
+        playerObj.transform.rotation = Quaternion.Euler(90f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+    }
 }

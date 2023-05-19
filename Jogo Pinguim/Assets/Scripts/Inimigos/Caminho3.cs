@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Caminho3 : MonoBehaviour {
-    public PlayerMovement pm;
     public float speed = 2.0f; // Velocidade de movimento do objeto
     public GameObject waypoints; // GameObject com pontos de patrulha
 
