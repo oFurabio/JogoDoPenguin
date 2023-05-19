@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &450970359973622536
+--- !u!1 &854200684551661298
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 450970359973622539}
-  - component: {fileID: 450970359973622533}
-  - component: {fileID: 450970359973622538}
+  - component: {fileID: 854200685094242196}
+  - component: {fileID: 854200685094242197}
+  - component: {fileID: 854200685094242199}
   m_Layer: 0
   m_Name: JumpBurst
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &450970359973622539
+--- !u!4 &854200685094242196
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450970359973622536}
+  m_GameObject: {fileID: 854200684551661298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.282, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,13 +33,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &450970359973622533
+--- !u!198 &854200685094242197
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450970359973622536}
+  m_GameObject: {fileID: 854200684551661298}
   serializedVersion: 8
   lengthInSec: 0.05
   simulationSpeed: 1
@@ -1548,8 +1548,8 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: -2
+      scalar: 4
+      minScalar: -4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1654,8 +1654,8 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: -2
+      scalar: 4
+      minScalar: -4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4798,14 +4798,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &450970359973622538
+--- !u!199 &854200685094242199
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450970359973622536}
+  m_GameObject: {fileID: 854200684551661298}
   m_Enabled: 1
   m_CastShadows: 2
   m_ReceiveShadows: 0
