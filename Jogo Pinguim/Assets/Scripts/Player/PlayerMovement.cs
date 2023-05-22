@@ -42,25 +42,25 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode slideKey = KeyCode.LeftShift;
 
     [Header("Checa o solo")]
+    public LayerMask whatIsGround;
     public float playerHeight = 0.0625f;
     public float aBit = 0.5f;
-    public LayerMask whatIsGround;
     public float yOffset = 0f;
     public float zOffset = 0f;
     public float radius = 0.4f;
     [HideInInspector] public bool grounded = false;
 
     [Header("Inclinação")]
-    private float rotationAngle;
+    public float rotationAngle = 90f;
     [Range(0f, 90f)]
     public float maxSlopeAngle = 40f;
-    //[SerializeField] private float angle = 0;
     private RaycastHit slopeHit;
     private bool exitingSlope = false;
 
     float hInput, vInput;
 
     [Header("Referências")]
+    private ParticlesController ps;
     public InterfaceManager im;
     public Transform orientation;
     public Animator animator;
@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Outros")]
     public MovementState state;
-    private Quaternion slidingRotation;
     public bool sliding;
 
     public enum MovementState
@@ -84,11 +83,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        ps = GetComponent<ParticlesController>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         yOffset = -0.325f;
         zOffset = 0f;
-        //rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void Update()
@@ -101,14 +100,15 @@ public class PlayerMovement : MonoBehaviour
 
         grounded = Physics.CheckSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
 
-        if(im.PodeMover())
+        if (im.PodeMover())
             MyInput();
 
         SpeedControl();
         StateHandler();
         Animacao();
 
-        if (grounded) {
+        if (grounded)
+        {
             rb.drag = groundDrag;
             canDash = true;
             readyToJump = true;
@@ -134,13 +134,13 @@ public class PlayerMovement : MonoBehaviour
         vInput = Input.GetAxis("Vertical");
 
         //  Quando pular
-        if (Input.GetKeyDown(jumpKey))
+        if (Input.GetKeyDown(jumpKey) || Input.GetButtonDown("Jump"))
             Jump();
 
-        if (Input.GetKeyDown(slideKey) && (hInput != 0 || vInput != 0))
+        if (Input.GetKeyDown(slideKey) || Input.GetButtonDown("Slide") && (hInput != 0 || vInput != 0))
             StartSlide();
 
-        if (Input.GetKeyUp(slideKey) && sliding)
+        if (Input.GetKeyUp(slideKey) || Input.GetButtonUp("Slide") && sliding)
             StopSlide();
 
         if (hInput == 0 && vInput == 0)
@@ -269,6 +269,7 @@ public class PlayerMovement : MonoBehaviour
         StopSlide();
         if (grounded == true && readyToJump)
         {
+            ps.burst.Play();
             exitingSlope = true;
             readyToJump = false;
 
@@ -279,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (readyToJump && grounded == false)
         {
+            ps.burst.Play();
             exitingSlope = true;
             readyToJump = false;
 
@@ -288,8 +290,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool OnSlope() {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit)) {
+    public bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit))
+        {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
@@ -297,7 +301,8 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    public Vector3 GetSlopeMoveDirection(Vector3 direction) {
+    public Vector3 GetSlopeMoveDirection(Vector3 direction)
+    {
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
@@ -316,7 +321,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void StartSlide() {
+    private void StartSlide()
+    {
         if (canDash)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -378,6 +384,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Rotacionar()
     {
-        playerObj.transform.rotation = Quaternion.Euler(90f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+        playerObj.transform.rotation = Quaternion.Euler(rotationAngle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
     }
 }

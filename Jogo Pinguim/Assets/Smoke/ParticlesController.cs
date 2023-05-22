@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticlesController : MonoBehaviour
-{
-    
-    public ParticleSystem walkSmoke;
-    bool walkSmokeToggle;
-
-    public ParticleSystem burst;
-
+public class ParticlesController : MonoBehaviour {
+    public ParticleSystem walkSmoke, burst;
     public PlayerMovement pm;
     public Rigidbody rb;
+
+    bool walkSmokeToggle;
 
     void Update()
     {
@@ -31,9 +27,5 @@ public class ParticlesController : MonoBehaviour
             walkSmokeToggle = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            burst.Play();
-        }
     }
 }

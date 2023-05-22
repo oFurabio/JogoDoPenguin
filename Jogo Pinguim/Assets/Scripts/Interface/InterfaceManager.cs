@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class InterfaceManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class InterfaceManager : MonoBehaviour
     private Health health;
     public Transform player;
     public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes, developer;
+    public GameObject opPrimeiro;
 
     private void Start()
     {
@@ -26,7 +28,7 @@ public class InterfaceManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F12))
+        if (Input.GetButtonDown("Debug"))
         {
             if (developer.activeInHierarchy)
             {
@@ -58,6 +60,9 @@ public class InterfaceManager : MonoBehaviour
         CursorHandler();
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(opPrimeiro);
     }
 
     public void Resume()
