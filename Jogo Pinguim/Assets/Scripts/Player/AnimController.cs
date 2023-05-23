@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimController : MonoBehaviour {
-    public PlayerMovement pm;
     Animator anim;
 
     int idleCount = 0;

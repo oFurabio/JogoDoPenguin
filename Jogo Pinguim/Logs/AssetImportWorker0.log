@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2021.3/release' branch; Version is '2021.3.17f1 (3e8111cac19d) revision 4096273'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'pt' Physical Memory: 16335 MB
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'pt' Physical Memory: 16349 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-D:\Unity\2021.3.17f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2021.3.17f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Reaper/Documents/GitHub/JogoDoPenguin/Jogo Pinguim
+C:/Users/thega/Unity Projects/JogoDoPenguin/Jogo Pinguim
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57816
-Successfully changed project path to: C:/Users/Reaper/Documents/GitHub/JogoDoPenguin/Jogo Pinguim
-C:/Users/Reaper/Documents/GitHub/JogoDoPenguin/Jogo Pinguim
+55179
+Successfully changed project path to: C:/Users/thega/Unity Projects/JogoDoPenguin/Jogo Pinguim
+C:/Users/thega/Unity Projects/JogoDoPenguin/Jogo Pinguim
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,109 +47,109 @@ C:/Users/Reaper/Documents/GitHub/JogoDoPenguin/Jogo Pinguim
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [10660] Host "[IP] 192.168.15.31 [Port] 0 [Flags] 2 [Guid] 4104714547 [EditorId] 4104714547 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6JK7HVP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [13552] Host "[IP] 192.168.0.15 [Port] 0 [Flags] 2 [Guid] 2249065696 [EditorId] 2249065696 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-D9D7DPE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [10660] Host "[IP] 192.168.15.31 [Port] 0 [Flags] 2 [Guid] 4104714547 [EditorId] 4104714547 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-6JK7HVP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13552] Host "[IP] 192.168.0.15 [Port] 0 [Flags] 2 [Guid] 2249065696 [EditorId] 2249065696 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-D9D7DPE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 142.91 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 181.97 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.17f1 (3e8111cac19d)
-[Subsystems] Discovering subsystems at path D:/Unity/2021.3.17f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Reaper/Documents/GitHub/JogoDoPenguin/Jogo Pinguim/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/thega/Unity Projects/JogoDoPenguin/Jogo Pinguim/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c81)
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 730 (ID=0x1287)
     Vendor:   NVIDIA
-    VRAM:     1976 MB
-    Driver:   31.0.15.3179
+    VRAM:     2007 MB
+    Driver:   30.0.14.7381
 Initialize mono
-Mono path[0] = 'D:/Unity/2021.3.17f1/Editor/Data/Managed'
-Mono path[1] = 'D:/Unity/2021.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'D:/Unity/2021.3.17f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56068
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56584
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: D:/Unity/2021.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004667 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.027887 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 135.75 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 183.03 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.687 seconds
+- Completed reload, in  1.412 seconds
 Domain Reload Profiling:
-	ReloadAssembly (688ms)
-		BeginReloadAssembly (84ms)
+	ReloadAssembly (1413ms)
+		BeginReloadAssembly (272ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (486ms)
-			LoadAssemblies (79ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (815ms)
+			LoadAssemblies (266ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (100ms)
+			SetupTypeCache (200ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (306ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (477ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (17ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (136ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (118ms)
-				ProcessInitializeOnLoadMethodAttributes (43ms)
+				RefreshPlugins (183ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (190ms)
+				ProcessInitializeOnLoadMethodAttributes (84ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.013526 seconds.
+Registered in 0.022677 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\Reaper\Documents\GitHub\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\Reaper\Documents\GitHub\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 137.85 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 224.32 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.412 seconds
+- Completed reload, in  2.498 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1413ms)
-		BeginReloadAssembly (116ms)
+	ReloadAssembly (2500ms)
+		BeginReloadAssembly (224ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (10ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (1165ms)
-			LoadAssemblies (106ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (2077ms)
+			LoadAssemblies (187ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (299ms)
+			SetupTypeCache (482ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (61ms)
-			SetupLoadedEditorAssemblies (652ms)
+			RebuildScriptCaches (106ms)
+			SetupLoadedEditorAssemblies (1251ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (12ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (138ms)
-				BeforeProcessingInitializeOnLoad (150ms)
-				ProcessInitializeOnLoadAttributes (267ms)
-				ProcessInitializeOnLoadMethodAttributes (80ms)
-				AfterProcessingInitializeOnLoad (14ms)
+				RefreshPlugins (224ms)
+				BeforeProcessingInitializeOnLoad (257ms)
+				ProcessInitializeOnLoadAttributes (591ms)
+				ProcessInitializeOnLoadMethodAttributes (143ms)
+				AfterProcessingInitializeOnLoad (23ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 1.38 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5083 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 46 unused Assets / (0.8 MB). Loaded Objects now: 5547.
-Memory consumption went from 206.6 MB to 205.8 MB.
-Total: 4.652400 ms (FindLiveObjects: 0.625800 ms CreateObjectMapping: 0.213100 ms MarkObjects: 3.369200 ms  DeleteObjects: 0.442600 ms)
+Unloading 5085 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (0.8 MB). Loaded Objects now: 5549.
+Memory consumption went from 207.6 MB to 206.8 MB.
+Total: 8.676000 ms (FindLiveObjects: 0.986100 ms CreateObjectMapping: 0.379400 ms MarkObjects: 6.336300 ms  DeleteObjects: 0.971800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -163,13 +163,339 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 14967.955058 seconds.
-  path: Assets/Scenes/Tutoras.unity
-  artifactKey: Guid(54a7793cde95e55488db483e9b01f624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Tutoras.unity using Guid(54a7793cde95e55488db483e9b01f624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a59a170bc6344c0bd3b95605d1cda928') in 0.011019 seconds 
+  Time since last request: 2005.305464 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat
+  artifactKey: Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat using Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b3c3336d820ad6d4f84fe9a8417f007') in 1.223480 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.735166 seconds.
-  path: Assets/Scenes/Level 1.unity
-  artifactKey: Guid(ded63a8fcc0c6d048b7f4169fd8c3a95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Level 1.unity using Guid(ded63a8fcc0c6d048b7f4169fd8c3a95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b266234d330d113947f864c8b8a6f9e') in 0.003689 seconds 
+  Time since last request: 251.705549 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat
+  artifactKey: Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat using Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24d498b7578c18cc5e860fc265f0027f') in 0.016644 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 935.814055 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat
+  artifactKey: Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat using Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1a7d83022e56d7588b479bbc463223') in 0.015697 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016404 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.187 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2188ms)
+		BeginReloadAssembly (234ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (57ms)
+		EndReloadAssembly (1777ms)
+			LoadAssemblies (167ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (568ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (90ms)
+			SetupLoadedEditorAssemblies (812ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (26ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (185ms)
+				ProcessInitializeOnLoadAttributes (433ms)
+				ProcessInitializeOnLoadMethodAttributes (141ms)
+				AfterProcessingInitializeOnLoad (25ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.50 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4948 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.8 MB). Loaded Objects now: 5650.
+Memory consumption went from 204.0 MB to 203.3 MB.
+Total: 5.532600 ms (FindLiveObjects: 0.483700 ms CreateObjectMapping: 0.252200 ms MarkObjects: 4.362800 ms  DeleteObjects: 0.432200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 513.846645 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/tiletijolo.png
+  artifactKey: Guid(d72125f86b724be42aafb60cff4dc13c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/tiletijolo.png using Guid(d72125f86b724be42aafb60cff4dc13c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce64d6f298baf1487dffc4c3e1c07c7b') in 0.130530 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 811.233010 seconds.
+  path: Assets/Simple Toon Shader/ToonTiling WorldSpace.shadergraph
+  artifactKey: Guid(5faef66d0db616e4cbdc3bd26538b3d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Simple Toon Shader/ToonTiling WorldSpace.shadergraph using Guid(5faef66d0db616e4cbdc3bd26538b3d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd42b87943504fe8e5cf85c0fa1be9e2c') in 0.013672 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 707.031813 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat
+  artifactKey: Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat using Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f51e1581c5e08bb870f8a2034f4f0934') in 0.948868 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 136.137969 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat
+  artifactKey: Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat using Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9e22acdc517a9c944d267f5f5132309') in 0.019238 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 310.448965 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat
+  artifactKey: Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo.mat using Guid(a50777951cd307a48bf116944df86adf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c36fcb9fe128e74f165018b6f1b39ed') in 0.019896 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 200.903996 seconds.
+  path: Assets/Cenário Prefabs/Lixo Reciclagem/lixodereciclagem.fbx
+  artifactKey: Guid(f3feeb85973190f40b5503b1394c2040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Lixo Reciclagem/lixodereciclagem.fbx using Guid(f3feeb85973190f40b5503b1394c2040) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d58f6803dc11b2bd23a3344f4df38a0') in 0.275744 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Cenário Prefabs/Lixo Reciclagem/Plástico verde.mat
+  artifactKey: Guid(7285c339bf8dea54486f429b8d64f8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Lixo Reciclagem/Plástico verde.mat using Guid(7285c339bf8dea54486f429b8d64f8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fa4887f636c61794a03f852177dd219') in 0.054121 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.052430 seconds.
+  path: Assets/Cenário Prefabs/Cone/cone.fbx
+  artifactKey: Guid(08c0569782147dd4fb2da92455209ec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Cone/cone.fbx using Guid(08c0569782147dd4fb2da92455209ec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4f2069a03542071e57a9923a96ca7c2') in 0.216637 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Cenário Prefabs/Cone/Cone.mat
+  artifactKey: Guid(a4472cf58377e63419ce41a49f0d054e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Cone/Cone.mat using Guid(a4472cf58377e63419ce41a49f0d054e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '566c2011e698b2a8c15afbb604b38271') in 0.055165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Cenário Prefabs/Cone/Cone1.mat
+  artifactKey: Guid(813e163a0a295414995cdc9730b92e14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Cone/Cone1.mat using Guid(813e163a0a295414995cdc9730b92e14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e27454c49e0d7f5649a5395befbe512f') in 0.053316 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.795724 seconds.
+  path: Assets/Cenário Prefabs/Caixote/CaixoteMat.mat
+  artifactKey: Guid(b25d19cdc16c6464b8cb9b232befc595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Caixote/CaixoteMat.mat using Guid(b25d19cdc16c6464b8cb9b232befc595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc8daf43fe920152aed38d8d98d23017') in 0.109051 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.212718 seconds.
+  path: Assets/Cenário Prefabs/Banco de Praça/bancodepraca.fbx
+  artifactKey: Guid(76e60dbe31a73d1439192a07de65ab25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Banco de Praça/bancodepraca.fbx using Guid(76e60dbe31a73d1439192a07de65ab25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09e8007106164df5579916d5c6dfe742') in 0.096731 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017461 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.52 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.310 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2311ms)
+		BeginReloadAssembly (256ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (13ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (64ms)
+		EndReloadAssembly (1846ms)
+			LoadAssemblies (192ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (561ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (92ms)
+			SetupLoadedEditorAssemblies (861ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (79ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (188ms)
+				ProcessInitializeOnLoadAttributes (430ms)
+				ProcessInitializeOnLoadMethodAttributes (135ms)
+				AfterProcessingInitializeOnLoad (26ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (25ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4949 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.8 MB). Loaded Objects now: 5711.
+Memory consumption went from 204.8 MB to 204.1 MB.
+Total: 6.794500 ms (FindLiveObjects: 0.743000 ms CreateObjectMapping: 0.256700 ms MarkObjects: 5.244600 ms  DeleteObjects: 0.548000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024050 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.36 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.164 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3165ms)
+		BeginReloadAssembly (284ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (65ms)
+		EndReloadAssembly (2605ms)
+			LoadAssemblies (228ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (957ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (129ms)
+			SetupLoadedEditorAssemblies (1088ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (37ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (242ms)
+				ProcessInitializeOnLoadAttributes (601ms)
+				ProcessInitializeOnLoadMethodAttributes (175ms)
+				AfterProcessingInitializeOnLoad (30ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (31ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.37 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4948 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.8 MB). Loaded Objects now: 5726.
+Memory consumption went from 204.5 MB to 203.8 MB.
+Total: 5.801700 ms (FindLiveObjects: 0.464700 ms CreateObjectMapping: 0.203300 ms MarkObjects: 4.639600 ms  DeleteObjects: 0.491900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017227 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\thega\Unity Projects\JogoDoPenguin\Jogo Pinguim\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.76 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.208 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2209ms)
+		BeginReloadAssembly (234ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (51ms)
+		EndReloadAssembly (1784ms)
+			LoadAssemblies (180ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (553ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (92ms)
+			SetupLoadedEditorAssemblies (828ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (26ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (189ms)
+				ProcessInitializeOnLoadAttributes (441ms)
+				ProcessInitializeOnLoadMethodAttributes (143ms)
+				AfterProcessingInitializeOnLoad (26ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 5.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4948 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.8 MB). Loaded Objects now: 5741.
+Memory consumption went from 204.6 MB to 203.8 MB.
+Total: 8.119900 ms (FindLiveObjects: 0.689300 ms CreateObjectMapping: 0.359600 ms MarkObjects: 6.282700 ms  DeleteObjects: 0.773000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 952.396894 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Tijolo 1.mat
+  artifactKey: Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Tijolo 1.mat using Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bbf9403bb71798c9fb32904c3b09ebd') in 0.979164 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.276861 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Pedra.mat
+  artifactKey: Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Pedra.mat using Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abcaa6a8731662c558c6ab16d008b0a6') in 0.024198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.412152 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Pedra.mat
+  artifactKey: Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Pedra.mat using Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f3a5aef2756f40ebe9a6e29ef959021') in 0.018561 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.186098 seconds.
+  path: Assets/Cenário Prefabs/Materiais Gerais/Pedra.mat
+  artifactKey: Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cenário Prefabs/Materiais Gerais/Pedra.mat using Guid(6ce7fc2cc1765cf458c05b8b152fc95f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c652615a88b2371b2c4d46ca379503d2') in 0.020797 seconds 
