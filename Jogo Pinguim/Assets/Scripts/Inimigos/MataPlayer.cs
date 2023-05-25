@@ -15,6 +15,7 @@ public class MataPlayer : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             if (pm.sliding) {
+                pm.Ataque();
                 Destroy(gameObject);
             } else {
                 ph.currentHealth--;

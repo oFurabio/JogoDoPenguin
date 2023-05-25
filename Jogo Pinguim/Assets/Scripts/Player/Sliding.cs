@@ -42,7 +42,7 @@ public class Sliding : MonoBehaviour {
 
         if (Input.GetKeyUp(slideKey) && pm.sliding) {
             StopSlide();
-            if (pm.grounded)
+            if (pm.Grounded())
                 canDash = true;
         }
     }

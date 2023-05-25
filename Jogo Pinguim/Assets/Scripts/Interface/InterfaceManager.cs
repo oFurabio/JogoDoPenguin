@@ -1,28 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 
 public class InterfaceManager : MonoBehaviour
 {
     public static bool jogoPausado = false;
-    public static bool cursorVisivel = false;
     public static bool fimDeJogo = false;
-    private bool respawnando = false;
-    private Health health;
-    public Transform player;
-    public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes, developer;
-    public GameObject opPrimeiro;
 
-    private void Start()
-    {
-        GameObject player = GameObject.Find("Player"); // Assuming the Player GameObject has the "Player" tag assigned
-        health = player.GetComponent<Health>();
-        Cursor.lockState = CursorLockMode.Locked;
-        respawnando = false;
-        Cursor.visible = false;
-        cursorVisivel = false;
+    public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes, developer;
+    public GameObject continuar, voltar, cancela1, cancela2;
+
+    private void Start() {
+        jogoPausado = false;
         fimDeJogo = false;
     }
 
@@ -30,18 +22,11 @@ public class InterfaceManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Debug"))
         {
-            if (developer.activeInHierarchy)
-            {
+            if (developer.activeInHierarchy) {
                 developer.SetActive(false);
             } else {
                 developer.SetActive(true);
             }
-        }
-
-        if (fimDeJogo && !respawnando)
-        {
-            respawnando = true;
-            FimDeJogo();
         }
             
 
@@ -54,41 +39,21 @@ public class InterfaceManager : MonoBehaviour
         }
     }
 
-    private void Pause()
-    {
+    private void Pause() {
         jogoPausado = true;
-        CursorHandler();
-        Time.timeScale = 0f;
         pauseMenu.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(opPrimeiro);
+        GameState.GerenteEstado(1);
+        AbriuMenu(continuar);
     }
 
-    public void Resume()
-    {
+    public void Resume() {
         jogoPausado = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         configuracoesMenu.SetActive(false);
         confirmacao.SetActive(false);
         botoes.SetActive(true);
-    }
-
-    public void CursorHandler()
-    {
-        if (cursorVisivel)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        AbriuMenu(continuar);
+        GameState.GerenteEstado(0);
     }
 
     public void OpenConfig()
@@ -97,20 +62,20 @@ public class InterfaceManager : MonoBehaviour
         {
             pauseMenu.SetActive(false);
             configuracoesMenu.SetActive(true);
+            AbriuMenu(voltar);
         }
         else
         {
             configuracoesMenu.SetActive(false);
             pauseMenu.SetActive(true);
+            AbriuMenu(continuar);
         }
     }
 
     public void Reiniciar()
     {
         jogoPausado = false;
-        fimDeJogo = false;
-        CursorHandler();
-        Time.timeScale = 1f;
+        GameState.GerenteEstado(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -120,12 +85,12 @@ public class InterfaceManager : MonoBehaviour
         {
             confirmacaoMenu.SetActive(false);
             botoes.SetActive(true);
-            Resume();
-            CursorHandler();
+            GameState.GerenteEstado(0);
             SceneManager.LoadScene("Menu");
         } else {
             botoes.SetActive(false);
             confirmacaoMenu.SetActive(true);
+            AbriuMenu(cancela1);
         }
     }
 
@@ -142,6 +107,7 @@ public class InterfaceManager : MonoBehaviour
         {
             botoes.SetActive(false);
             confirmacao.SetActive(true);
+            AbriuMenu(cancela2);
         }
 
     }
@@ -151,29 +117,12 @@ public class InterfaceManager : MonoBehaviour
         confirmacao.SetActive(false);
         confirmacaoMenu.SetActive(false);
         botoes.SetActive(true);
+        AbriuMenu(continuar);
     }
 
-    public bool PodeMover()
+    private void AbriuMenu(GameObject opcao)
     {
-        if (jogoPausado || fimDeJogo)
-            return false;
-
-        return true;
-    }
-
-    public void Respawn()
-    {
-        Debug.Log("Respawning...");
-        player.transform.position = new(0f, 1f, -15f);
-        fimDeJogo = false;
-        Health.dead = false;
-        health.currentHealth = 1;
-        respawnando = false;
-
-    }
-
-    private void FimDeJogo()
-    {
-        Invoke(nameof(Respawn), 3f);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(opcao);
     }
 }

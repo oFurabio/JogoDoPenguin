@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 5f;
     [Range(1f, 20f)]
     public float slideSpeed = 10f;
-    [Range(1f, 20f)]
+    [Range(1f, 40f)]
     public float slideTopSpeed = 15f;
 
     private float desiredMoveSpeed;
@@ -27,13 +27,13 @@ public class PlayerMovement : MonoBehaviour
     [Range(1f, 15f)]
     public float secondJumpForce = 7f;
     public float airMultiplier = 0.4f;
-    bool readyToJump = true;
+    private bool readyToJump = true;
 
     [Header("Deslizando")]
     public float slideForce = 50f;
     [Range(1f, 15f)]
     public float dashjumpForce = 10f;
-    [Range(1f, 30f)]
+    [Range(1f, 75f)]
     public float forwardForce = 25f;
     private bool canDash = true;
 
@@ -48,12 +48,12 @@ public class PlayerMovement : MonoBehaviour
     public float yOffset = 0f;
     public float zOffset = 0f;
     public float radius = 0.4f;
-    [HideInInspector] public bool grounded = false;
 
     [Header("Inclinação")]
     public float rotationAngle = 90f;
-    [Range(0f, 90f)]
+    [Range(0f, 75f)]
     public float maxSlopeAngle = 40f;
+    [HideInInspector] public float angle;
     private RaycastHit slopeHit;
     private bool exitingSlope = false;
 
@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Referências")]
     private ParticlesController ps;
-    public InterfaceManager im;
     public Transform orientation;
     public Animator animator;
     public Transform playerObj;
@@ -74,8 +73,7 @@ public class PlayerMovement : MonoBehaviour
     public MovementState state;
     public bool sliding;
 
-    public enum MovementState
-    {
+    public enum MovementState {
         andando,
         deslizando,
         ar
@@ -90,31 +88,36 @@ public class PlayerMovement : MonoBehaviour
         zOffset = 0f;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        // Desenha uma esfera com o mesmo raio e posição do CheckSphere
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(playerObj.transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius);
+    }
+
     private void Update()
     {
+        Debug.DrawRay(playerObj.transform.position, Vector3.down, Color.red);
+
         if (Health.dead)
         {
             vInput = 0f;
             hInput = 0f;
         }
 
-        grounded = Physics.CheckSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
-
-        if (im.PodeMover())
+        if (PodeMover())
             MyInput();
 
         SpeedControl();
         StateHandler();
         Animacao();
+        DragControl();
 
-        if (grounded)
+        if (Grounded())
         {
-            rb.drag = groundDrag;
             canDash = true;
             readyToJump = true;
         }
-        else
-            rb.drag = 0;
 
         if (sliding)
             Rotacionar();
@@ -128,19 +131,38 @@ public class PlayerMovement : MonoBehaviour
             SlidingMovement();
     }
 
-    private void MyInput()
+    public bool Grounded()
     {
+        return Physics.CheckSphere(playerObj.transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
+    }
+
+    private void DragControl()
+    {
+        if (Grounded())
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
+    }
+
+    public bool PodeMover()
+    {
+        if (InterfaceManager.jogoPausado || InterfaceManager.fimDeJogo)
+            return false;
+
+        return true;
+    }
+
+    private void MyInput() {
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
 
-        //  Quando pular
-        if (Input.GetKeyDown(jumpKey) || Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
             Jump();
 
-        if (Input.GetKeyDown(slideKey) || Input.GetButtonDown("Slide") && (hInput != 0 || vInput != 0))
+        if (Input.GetButtonDown("Slide") && (hInput != 0 || vInput != 0))
             StartSlide();
 
-        if (Input.GetKeyUp(slideKey) || Input.GetButtonUp("Slide") && sliding)
+        if (Input.GetButtonUp("Slide") && sliding)
             StopSlide();
 
         if (hInput == 0 && vInput == 0)
@@ -162,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //  Modo - Andando
-        else if (grounded)
+        else if (Grounded())
         {
             state = MovementState.andando;
             desiredMoveSpeed = walkSpeed;
@@ -221,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
         //  Na inclinação
         if (OnSlope() && !exitingSlope)
         {
-            Debug.Log("Na inclinação");
+            //Debug.Log("Na inclinação " + angle);
 
             rb.AddForce(20f * moveSpeed * GetSlopeMoveDirection(moveDirection), ForceMode.Force);
 
@@ -230,11 +252,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //  No chão
-        else if (grounded)
+        else if (Grounded())
             rb.AddForce(10 * moveSpeed * moveDirection, ForceMode.Force);
 
         //  No ar
-        else if (!grounded)
+        else if (!Grounded())
             rb.AddForce(10 * airMultiplier * moveSpeed * moveDirection, ForceMode.Force);
 
         rb.useGravity = !OnSlope();
@@ -267,34 +289,34 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         StopSlide();
-        if (grounded == true && readyToJump)
+        exitingSlope = true;
+
+        //  Primeiro salto
+        if (Grounded())
         {
             ps.burst.Play();
             exitingSlope = true;
-            readyToJump = false;
 
-            //  Reset Y velocity
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
+            rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
-        else if (readyToJump && grounded == false)
+
+        //  Segundo salto
+        else if (readyToJump)
         {
             ps.burst.Play();
-            exitingSlope = true;
             readyToJump = false;
 
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
+            rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(transform.up * secondJumpForce, ForceMode.Impulse);
         }
     }
 
     public bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit))
+        if (Physics.Raycast(playerObj.transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit, whatIsGround))
         {
-            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
 
@@ -306,32 +328,31 @@ public class PlayerMovement : MonoBehaviour
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
-    private void OffsetHandler()
-    {
-        if (sliding)
-        {
-            yOffset = 0.05f;
+    private void OffsetHandler() {
+        if (sliding) {
+            yOffset = 0.25f;
             zOffset = 0f;
-        }
-        else
-        {
+        } else {
             yOffset = -0.325f;
             zOffset = 0f;
         }
-
     }
 
-    private void StartSlide()
-    {
-        if (canDash)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-            rb.AddForce(transform.up * jumpForce + orientation.forward * forwardForce, ForceMode.Impulse);
+    private void StartSlide() {
+        if (canDash) {
+            //rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
+            rb.AddForce(transform.up * dashjumpForce + moveDirection * forwardForce, ForceMode.Impulse);
         }
 
         sliding = true;
         OffsetHandler();
+    }
+
+    public void Ataque()
+    {
+        rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(1.5f * secondJumpForce * transform.up, ForceMode.Impulse);
+        readyToJump = true;
     }
 
     private void SlidingMovement()
@@ -347,43 +368,34 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(GetSlopeMoveDirection(moveDirection) * slideForce, ForceMode.Force);
     }
 
-    private void StopSlide()
-    {
+    private void StopSlide() {
         sliding = false;
         playerObj.transform.rotation = Quaternion.Euler(0f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
         OffsetHandler();
-
-        if (grounded)
-            moveSpeed = walkSpeed;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        // Desenha uma esfera com o mesmo raio e posição do CheckSphere
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius);
     }
 
     private void Animacao()
     {
         animator.SetBool("sliding", sliding);
-        animator.SetBool("grounded", grounded);
+        animator.SetBool("grounded", Grounded());
 
         if (state == MovementState.andando && (vInput != 0 || hInput != 0))
-        {
             animator.SetBool("walk", true);
-        }
         else
-        {
             animator.SetBool("walk", false);
-        }
 
         animator.SetFloat("verticalSpeed", rb.velocity.y);
         animator.SetBool("dead", Health.dead);
     }
 
-    private void Rotacionar()
-    {
-        playerObj.transform.rotation = Quaternion.Euler(rotationAngle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+    private void Rotacionar() {
+        if (rb.velocity.y < 0.1f)
+            playerObj.transform.rotation = Quaternion.Euler(rotationAngle + angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+        
+        else if (rb.velocity.y > 0.1f)
+            playerObj.transform.rotation = Quaternion.Euler(rotationAngle - angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+
+        else
+            playerObj.transform.rotation = Quaternion.Euler(rotationAngle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
     }
 }

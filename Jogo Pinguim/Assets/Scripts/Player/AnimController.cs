@@ -9,7 +9,7 @@ public class AnimController : MonoBehaviour {
 
     public int idleToAFK = 8;
 
-    public KeyCode quackKey = KeyCode.J;
+    public static KeyCode quackKey = KeyCode.E;
 
     public GameObject quack1;
     public GameObject quack2;

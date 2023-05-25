@@ -16,7 +16,7 @@ public class AudioController : MonoBehaviour
     void Update()
     {
         // Verifique se a tecla "X" foi pressionada
-        if (Input.GetKeyDown(KeyCode.J) && !isPlaying)
+        if (Input.GetKeyDown(AnimController.quackKey) && !isPlaying)
         {
             // Tocar o som e definir isPlaying como true
             audioSource.Play();

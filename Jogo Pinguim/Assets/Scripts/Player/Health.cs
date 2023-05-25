@@ -19,8 +19,10 @@ public class Health : MonoBehaviour {
         if (currentHealth <= 0)
             dead = true;
 
-        if (dead)
+        if (dead) {
             InterfaceManager.fimDeJogo = true;
+            GameState.GerenteEstado(2);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

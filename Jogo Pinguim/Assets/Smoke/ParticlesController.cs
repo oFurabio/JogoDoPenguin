@@ -11,7 +11,7 @@ public class ParticlesController : MonoBehaviour {
 
     void Update()
     {
-        if (pm.grounded && pm.sliding && rb.velocity.magnitude > 0.1f && !walkSmokeToggle)
+        if (pm.Grounded() && pm.sliding && rb.velocity.magnitude > 0.1f && !walkSmokeToggle)
         {
             walkSmoke.Play();
             walkSmokeToggle = true;
@@ -21,7 +21,7 @@ public class ParticlesController : MonoBehaviour {
             walkSmoke.Stop();
             walkSmokeToggle = false;
         }
-        else if (!pm.grounded && walkSmokeToggle)
+        else if (!pm.Grounded() && walkSmokeToggle)
         {
             walkSmoke.Stop();
             walkSmokeToggle = false;
