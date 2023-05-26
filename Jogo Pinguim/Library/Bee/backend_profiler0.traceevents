@@ -1,5 +1,6 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ,{ "pid":12345, "tid":0, "ts":1685057931885820, "dur":1623, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1685057931887452, "dur":540, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1685057931888098, "dur":51, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -1483,6 +1484,8 @@
 ,{ "pid":12345, "tid":12, "ts":1685057932024860, "dur":30, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1685057932029799, "dur":4540, "ph":"X", "name": "ProfilerWriteOutput" }
 =======
+=======
+>>>>>>> Stashed changes
 ,{ "pid":12345, "tid":0, "ts":1685108093268196, "dur":7891, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1685108093276098, "dur":230, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1685108093276351, "dur":21, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -2116,5 +2119,8 @@
 ,{ "pid":12345, "tid":6, "ts":1685108093736946, "dur":1537, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Jogos/Agente P/Agente Penguin_Data/globalgamemanagers" }}
 ,{ "pid":12345, "tid":6, "ts":1685108093738494, "dur":175954, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1685108093917943, "dur":1882, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ,
