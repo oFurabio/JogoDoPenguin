@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour {
 
         else if (num == 2) {
             estado = EstadoJogo.Fim;
-            Time.timeScale = 0.75f;
+            Time.timeScale = 0.5f;
         }
 
         //  Jogo rodando

@@ -6,6 +6,7 @@ public class PlayerCam : MonoBehaviour {
     public Transform orientation, player, playerObj, chaseLookAt;
     public GameObject thirdPersonCam, chaseCam, topdownCam;
     public Rigidbody rb;
+    Vector3 inputDir;
 
     public float rotationSpeed;
 
@@ -25,8 +26,8 @@ public class PlayerCam : MonoBehaviour {
     private void Update() {
         //  Trocar estilo de camera
         if (Input.GetKeyDown(KeyCode.Alpha1)/*!PlayerMovement.sliding*/) SwitchCameraStyle(CameraStyle.Basic);
-        if (Input.GetKeyDown(KeyCode.Alpha2)/*PlayerMovement.sliding*/) SwitchCameraStyle(CameraStyle.Chase);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchCameraStyle(CameraStyle.Topdown);
+        //if (Input.GetKeyDown(KeyCode.Alpha2)/*PlayerMovement.sliding*/) SwitchCameraStyle(CameraStyle.Chase);
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchCameraStyle(CameraStyle.Topdown);
 
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
@@ -34,7 +35,11 @@ public class PlayerCam : MonoBehaviour {
         if(currentStyle == CameraStyle.Basic || currentStyle == CameraStyle.Topdown) {
             float hInput = Input.GetAxis("Horizontal");
             float vInput = Input.GetAxis("Vertical");
-            Vector3 inputDir = orientation.forward * vInput + orientation.right * hInput;
+
+            if (!Health.dead)
+                inputDir = orientation.forward * vInput + orientation.right * hInput;
+            else
+                inputDir = new(0f, 0f, 0f);
 
             if (inputDir != Vector3.zero)
                 playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);

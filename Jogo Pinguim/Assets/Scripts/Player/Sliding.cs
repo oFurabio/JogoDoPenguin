@@ -6,44 +6,54 @@ public class Sliding : MonoBehaviour {
     [Header("Referências")]
     public Transform orientation;
     public Transform playerObj;
+    public CapsuleCollider cc;
     private Rigidbody rb;
     private PlayerMovement pm;
+    private Dash dash;
 
     [Header("Deslizando")]
+    [Range(50f, 200f)]
     public float slideForce = 200f;
-    private float jumpForce = 10f;
-    private float forwardForce = 25f;
     private bool canDash = true;
 
-    [Header("Teclas")]
-    public KeyCode slideKey = KeyCode.LeftShift;
+    [Header("Rotação")]
+    public Vector3 inicial = new(0f, 1.075f, 0.05f);
+    public Vector3 deslizando = new(0f, 0.5f, 0.5f);
+
     float hInput, vInput;
 
     private void Start()    {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+        dash = GetComponent<Dash>();
+
     }
 
     private void Update() {
-
-        hInput = Input.GetAxis("Horizontal");
-        vInput = Input.GetAxis("Vertical");
-
-        if (Input.GetKeyDown(slideKey) && (hInput != 0 || vInput != 0)) {
-            if (canDash) {
-                canDash = false;
-                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-                rb.AddForce(transform.up * jumpForce + orientation.forward * forwardForce, ForceMode.Impulse);
-                StartSlide();
-            } else {
-                StartSlide();
-            }
+        if (Health.dead)
+        {
+            vInput = 0f;
+            StopSlide();
         }
 
-        if (Input.GetKeyUp(slideKey) && pm.sliding) {
-            StopSlide();
+        if (pm.PodeMover())
+        {
+            vInput = Input.GetAxis("Vertical");
+
+            if (Input.GetButtonDown("Slide") && vInput != 0f)
+                StartSlide();
+
+            if (Input.GetButtonUp("Slide") && pm.sliding)
+                StopSlide();
+
+            if (vInput == 0f)
+                StopSlide();
+
             if (pm.Grounded())
                 canDash = true;
+
+            if (pm.sliding)
+                Rotacionar();
         }
     }
 
@@ -54,7 +64,14 @@ public class Sliding : MonoBehaviour {
 
     private void StartSlide() {
         pm.sliding = true;
-        
+
+        cc.center = deslizando;
+        cc.direction = 2;
+
+        if (canDash) {
+            canDash = false;
+            dash.Dashar();
+        }
     }
 
     private void SlidingMovement() {
@@ -71,6 +88,15 @@ public class Sliding : MonoBehaviour {
 
     private void StopSlide() {
         pm.sliding = false;
-    }
 
+        cc.center = inicial;
+        cc.direction = 1;
+    }
+    
+    private void Rotacionar() {
+        if(rb.velocity.y > 0f)
+            playerObj.rotation = Quaternion.Euler(-pm.angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+        else
+            playerObj.rotation = Quaternion.Euler(pm.angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+    }
 }

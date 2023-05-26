@@ -81,18 +81,10 @@ public class InterfaceManager : MonoBehaviour
 
     public void MenuPrincipal()
     {
-        if (confirmacaoMenu.activeInHierarchy)
-        {
-            confirmacaoMenu.SetActive(false);
-            botoes.SetActive(true);
-            GameState.GerenteEstado(0);
-            SceneManager.LoadScene("Menu");
-        } else {
-            botoes.SetActive(false);
-            confirmacaoMenu.SetActive(true);
-            AbriuMenu(cancela1);
-        }
+        GameState.GerenteEstado(1);
+        SceneManager.LoadScene("Menu");
     }
+
 
     public void SairDoJogo()
     {

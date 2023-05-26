@@ -16,7 +16,7 @@ public class MataPlayer : MonoBehaviour {
         if (other.CompareTag("Player")) {
             if (pm.sliding) {
                 pm.Ataque();
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             } else {
                 ph.currentHealth--;
             }

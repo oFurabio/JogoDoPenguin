@@ -5,19 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimento")]
-    private float moveSpeed;
     [Range(1f, 20f)]
     public float walkSpeed = 5f;
     [Range(1f, 20f)]
     public float slideSpeed = 10f;
     [Range(1f, 40f)]
     public float slideTopSpeed = 15f;
+    [Range(1f, 40f)]
+    public float dashSpeed = 20f;
+    private float moveSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
 
-    public float speedIncreaseMultiplier = 0.75f;
-    public float slopeIncreaseMultiplier = 1.25f;
+    public float speedIncreaseMultiplier = 1.25f;
+    public float slopeIncreaseMultiplier = 1.75f;
 
     public float groundDrag = 4f;
 
@@ -26,56 +28,46 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 12f;
     [Range(1f, 15f)]
     public float secondJumpForce = 7f;
+    public float jumpCooldown = 0.25f;
     public float airMultiplier = 0.4f;
+
+    private bool canDouble = true;
     private bool readyToJump = true;
-
-    [Header("Deslizando")]
-    public float slideForce = 50f;
-    [Range(1f, 15f)]
-    public float dashjumpForce = 10f;
-    [Range(1f, 75f)]
-    public float forwardForce = 25f;
-    private bool canDash = true;
-
-    [Header("Teclas")]
-    public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode slideKey = KeyCode.LeftShift;
 
     [Header("Checa o solo")]
     public LayerMask whatIsGround;
-    public float playerHeight = 0.0625f;
-    public float aBit = 0.5f;
-    public float yOffset = 0f;
-    public float zOffset = 0f;
+    public float playerHeight = 0f;
+    public float aBit = 0f;
     public float radius = 0.4f;
 
     [Header("Inclinação")]
-    public float rotationAngle = 90f;
     [Range(0f, 75f)]
-    public float maxSlopeAngle = 40f;
-    [HideInInspector] public float angle;
+    public float maxSlopeAngle = 45f;
+    public float angle;
     private RaycastHit slopeHit;
     private bool exitingSlope = false;
 
-    float hInput, vInput;
 
     [Header("Referências")]
-    private ParticlesController ps;
     public Transform orientation;
     public Animator animator;
     public Transform playerObj;
+    private ParticlesController ps;
+    private Rigidbody rb;
 
-    Vector3 moveDirection;
-
-    Rigidbody rb;
 
     [Header("Outros")]
     public MovementState state;
     public bool sliding;
+    public bool dashing;
+    private float hInput, vInput;
+    Vector3 moveDirection;
 
-    public enum MovementState {
+    public enum MovementState
+    {
         andando,
         deslizando,
+        dashando,
         ar
     }
 
@@ -84,23 +76,20 @@ public class PlayerMovement : MonoBehaviour
         ps = GetComponent<ParticlesController>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        yOffset = -0.325f;
-        zOffset = 0f;
     }
 
     private void OnDrawGizmosSelected()
     {
         // Desenha uma esfera com o mesmo raio e posição do CheckSphere
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(playerObj.transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius);
+        Gizmos.DrawWireSphere(playerObj.transform.position, radius);
     }
 
     private void Update()
     {
         Debug.DrawRay(playerObj.transform.position, Vector3.down, Color.red);
 
-        if (Health.dead)
-        {
+        if (Health.dead) {
             vInput = 0f;
             hInput = 0f;
         }
@@ -111,37 +100,23 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
         StateHandler();
         Animacao();
-        DragControl();
 
-        if (Grounded())
-        {
-            canDash = true;
-            readyToJump = true;
-        }
-
-        if (sliding)
-            Rotacionar();
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-
-        if (sliding)
-            SlidingMovement();
-    }
-
-    public bool Grounded()
-    {
-        return Physics.CheckSphere(playerObj.transform.position - new Vector3(0, playerHeight * 0.5f + yOffset, zOffset), radius, whatIsGround);
-    }
-
-    private void DragControl()
-    {
-        if (Grounded())
+        if (state == MovementState.andando || state == MovementState.deslizando)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (Grounded()) {
+            canDouble = true;
+        }
+    }
+
+    private void FixedUpdate() {
+        MovePlayer();
+    }
+
+    public bool Grounded() {
+        return Physics.CheckSphere(playerObj.transform.position, radius, whatIsGround);
     }
 
     public bool PodeMover()
@@ -152,28 +127,34 @@ public class PlayerMovement : MonoBehaviour
         return true;
     }
 
-    private void MyInput() {
+    private void MyInput()
+    {
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump") && readyToJump && Grounded())
+        {
+            readyToJump = false;
+
             Jump();
 
-        if (Input.GetButtonDown("Slide") && (hInput != 0 || vInput != 0))
-            StartSlide();
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
 
-        if (Input.GetButtonUp("Slide") && sliding)
-            StopSlide();
-
-        if (hInput == 0 && vInput == 0)
-            StopSlide();
-
+        if(Input.GetButtonDown("Jump") &&!Grounded() && canDouble) {
+            SecondaryJump();
+        }
     }
 
     private void StateHandler()
     {
+        if (dashing)
+        {
+            state = MovementState.dashando;
+            desiredMoveSpeed = dashSpeed;
+        }
         //  Modo - Deslizando
-        if (sliding)
+        else if (sliding && Grounded())
         {
             state = MovementState.deslizando;
 
@@ -237,6 +218,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (state == MovementState.dashando) return;
+
         //  Calcula a direção do movimento
         moveDirection = orientation.forward * vInput + orientation.right * hInput;
 
@@ -288,34 +271,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        StopSlide();
         exitingSlope = true;
+        ps.burst.Play();
 
-        //  Primeiro salto
-        if (Grounded())
-        {
-            ps.burst.Play();
-            exitingSlope = true;
-
-            rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        }
-
-        //  Segundo salto
-        else if (readyToJump)
-        {
-            ps.burst.Play();
-            readyToJump = false;
-
-            rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(transform.up * secondJumpForce, ForceMode.Impulse);
-        }
+        rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
-    public bool OnSlope()
+    private void SecondaryJump()
     {
-        if (Physics.Raycast(playerObj.transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit, whatIsGround))
-        {
+        canDouble = false;
+        ps.burst.Play();
+
+        rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * secondJumpForce, ForceMode.Impulse);
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
+
+        exitingSlope = false;
+    }
+
+    public bool OnSlope() {
+        if (Physics.Raycast(playerObj.transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit, whatIsGround)) {
             angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
@@ -323,55 +303,14 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    public Vector3 GetSlopeMoveDirection(Vector3 direction)
-    {
+    public Vector3 GetSlopeMoveDirection(Vector3 direction) {
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
-    private void OffsetHandler() {
-        if (sliding) {
-            yOffset = 0.25f;
-            zOffset = 0f;
-        } else {
-            yOffset = -0.325f;
-            zOffset = 0f;
-        }
-    }
-
-    private void StartSlide() {
-        if (canDash) {
-            //rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(transform.up * dashjumpForce + moveDirection * forwardForce, ForceMode.Impulse);
-        }
-
-        sliding = true;
-        OffsetHandler();
-    }
-
-    public void Ataque()
-    {
+    public void Ataque() {
         rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(1.5f * secondJumpForce * transform.up, ForceMode.Impulse);
         readyToJump = true;
-    }
-
-    private void SlidingMovement()
-    {
-        canDash = false;
-
-        //  Deslizando normalmente
-        if (!OnSlope() || rb.velocity.y > -0.1f)
-            rb.AddForce(moveDirection.normalized * slideForce, ForceMode.Force);
-
-        //  Deslizando numa descida
-        else
-            rb.AddForce(GetSlopeMoveDirection(moveDirection) * slideForce, ForceMode.Force);
-    }
-
-    private void StopSlide() {
-        sliding = false;
-        playerObj.transform.rotation = Quaternion.Euler(0f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
-        OffsetHandler();
     }
 
     private void Animacao()
@@ -386,16 +325,5 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("verticalSpeed", rb.velocity.y);
         animator.SetBool("dead", Health.dead);
-    }
-
-    private void Rotacionar() {
-        if (rb.velocity.y < 0.1f)
-            playerObj.transform.rotation = Quaternion.Euler(rotationAngle + angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
-        
-        else if (rb.velocity.y > 0.1f)
-            playerObj.transform.rotation = Quaternion.Euler(rotationAngle - angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
-
-        else
-            playerObj.transform.rotation = Quaternion.Euler(rotationAngle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
     }
 }

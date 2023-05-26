@@ -8,6 +8,7 @@ public class MenuPrincipal : MonoBehaviour {
 
     #region botoes
     public void IniciarJogo() {
+        GameState.GerenteEstado(0);
         SceneManager.LoadScene("Tutoras");
     }
 

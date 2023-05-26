@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 5466666193948580524}
   - component: {fileID: 5466666193948580527}
   - component: {fileID: 5466666193948580500}
+  - component: {fileID: 9137715852396831873}
+  - component: {fileID: 4840271662523492812}
   - component: {fileID: 5466666193948580521}
   - component: {fileID: 5466666193948580522}
   - component: {fileID: 5466666193948580523}
@@ -112,8 +114,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5466666193948580515}
-  m_LocalRotation: {x: -3.4972025e-15, y: 0, z: -8.526513e-14, w: 1}
-  m_LocalPosition: {x: 0, y: 0.53, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,33 +156,65 @@ MonoBehaviour:
   walkSpeed: 7
   slideSpeed: 12
   slideTopSpeed: 30
+  dashSpeed: 25
   speedIncreaseMultiplier: 1.25
   slopeIncreaseMultiplier: 1.75
   groundDrag: 4
   jumpForce: 15
-  secondJumpForce: 10
+  secondJumpForce: 12
+  jumpCooldown: 0.25
   airMultiplier: 0.4
-  slideForce: 50
-  dashjumpForce: 10
-  forwardForce: 25
-  jumpKey: 32
-  slideKey: 304
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  playerHeight: 0.0625
-  aBit: 0.5
-  yOffset: 0
-  zOffset: 0
+  playerHeight: 0
+  aBit: 0.75
   radius: 0.4
-  rotationAngle: 90
-  maxSlopeAngle: 40
+  maxSlopeAngle: 45
   angle: 0
   orientation: {fileID: 5466666194305773038}
   animator: {fileID: 1925265034330963596}
   playerObj: {fileID: 5501083781445657846}
   state: 0
   sliding: 0
+  dashing: 0
+--- !u!114 &9137715852396831873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5466666193948580515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d182b0cf54e7add4cb6207105a748d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 5466666194305773038}
+  playerObj: {fileID: 5501083781445657846}
+  cc: {fileID: 5466666195191481114}
+  slideForce: 100
+  inicial: {x: 0, y: 1.075, z: 0.05}
+  deslizando: {x: 0, y: 0.5, z: 0.5}
+--- !u!114 &4840271662523492812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5466666193948580515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41078298b91288459624a06dad393c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 5466666194305773038}
+  dashForce: 30
+  dashUpwardForce: 8
+  dashDuration: 0.25
+  disableGravity: 1
+  resetVel: 1
+  dashCd: 1.5
 --- !u!114 &5466666193948580521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5323,7 +5357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5331,7 +5365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -5343,7 +5377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5403,10 +5437,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: f1757f9b6665b514fbee0b979358bbaa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.42702696
-  m_Height: 2.178665
+  m_Radius: 0.45
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0618702, z: 0.052842587}
+  m_Center: {x: 0, y: 1.075, z: 0.05}
 --- !u!82 &5466666195191481093
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5503,6 +5537,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5466666195191481092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123994808004345420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533a4583fd2c1d54ab9c3114cd3f4b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5466666195191481093}
 --- !u!114 &5466666195191481113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5519,19 +5566,6 @@ MonoBehaviour:
   quack1: {fileID: 5466666193614323244}
   quack2: {fileID: 5466666194055279191}
   delay: 1
---- !u!114 &5466666195191481092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5123994808004345420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 533a4583fd2c1d54ab9c3114cd3f4b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 5466666195191481093}
 --- !u!4 &5501083781445657846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5e84d19f2a6cc9428abd04a4ae2b54f, type: 3}
