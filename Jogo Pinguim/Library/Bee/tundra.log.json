@@ -1,6 +1,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 {"msg":"init","dagFile":"Library/Bee/1900b0aE.dag","targets":["ScriptAssemblies"]}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"ScriptAssemblies","enqueuedNodeIndex":5}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"MovedFromExtractor Library/Bee/artifacts/mvdfrm/UnityEditor.Graphs.dll_44C008218E691FFF.mvfrm","enqueuedNodeIndex":4,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":5}
@@ -583,6 +584,8 @@
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteResponseFile Library/Bee/artifacts/rsp/10678863128556690338.rsp","enqueuedNodeIndex":479,"enqueueingNodeAnnotation":"ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)","enqueueingNodeIndex":480}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb","enqueuedNodeIndex":580,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":5}
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1196,6 +1199,9 @@
 {"msg":"noderesult","processed_node_count":151,"number_of_nodes_ever_queued":153,"annotation":"CopyFiles D:/Jogos/Agente P/Agente Penguin_Data/boot.config","index":1,"exitcode":0,"outputfile":"D:\\Jogos\\Agente P\\Agente Penguin_Data\\boot.config"}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
