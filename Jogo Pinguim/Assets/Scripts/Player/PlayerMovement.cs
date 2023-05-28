@@ -15,9 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed = 20f;
     private float moveSpeed;
 
-    private float desiredMoveSpeed;
-    private float lastDesiredMoveSpeed;
-
     public float speedIncreaseMultiplier = 1.25f;
     public float slopeIncreaseMultiplier = 1.75f;
 
@@ -146,6 +143,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private float desiredMoveSpeed;
+    private float lastDesiredMoveSpeed;
+    private MovementState lastState;
+    private bool keepMomentum;
+
     private void StateHandler()
     {
         if (dashing)
@@ -179,15 +181,46 @@ public class PlayerMovement : MonoBehaviour
 
         if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
         {
-            StopAllCoroutines();
-            StartCoroutine(SmootlyLerpMoveSpeed());
+            if (vInput == 0 && hInput == 0)
+            {
+                StopAllCoroutines();
+            }
+            else
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmootlyLerpMoveSpeed());
+            }
         }
         else
         {
             moveSpeed = desiredMoveSpeed;
+
+            if (desiredMoveSpeed < slideSpeed)
+                desiredMoveSpeed = walkSpeed;
+            else
+                desiredMoveSpeed = slideSpeed;
+        }
+
+        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+        if (lastState == MovementState.dashando) keepMomentum = true;
+
+        if (desiredMoveSpeedHasChanged)
+        {
+            if (keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmootlyLerpMoveSpeed());
+            }
+            else
+            {
+                StopAllCoroutines();
+                moveSpeed = desiredMoveSpeed;
+            }
+                
         }
 
         lastDesiredMoveSpeed = desiredMoveSpeed;
+        lastState = state;
     }
 
     private IEnumerator SmootlyLerpMoveSpeed()
@@ -315,7 +348,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animacao()
     {
-        animator.SetBool("sliding", sliding);
+        animator.SetBool("sliding", sliding || dashing);
         animator.SetBool("grounded", Grounded());
 
         if (state == MovementState.andando && (vInput != 0 || hInput != 0))
