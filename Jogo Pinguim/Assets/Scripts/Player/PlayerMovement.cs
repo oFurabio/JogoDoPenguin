@@ -341,6 +341,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Ataque() {
+        ps.hitFeedback.Play();
         rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(1.5f * secondJumpForce * transform.up, ForceMode.Impulse);
         readyToJump = true;
