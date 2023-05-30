@@ -60,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
     private float hInput, vInput;
     Vector3 moveDirection;
 
+    //passos
+    public AudioClip passo;
+    private AudioSource audioSource;
+    
+    
+   
+
+   
+
     public enum MovementState
     {
         andando,
@@ -73,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
         ps = GetComponent<ParticlesController>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        //passos
+        audioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnDrawGizmosSelected()
@@ -106,6 +119,8 @@ public class PlayerMovement : MonoBehaviour
         if (Grounded()) {
             canDouble = true;
         }
+
+      
     }
 
     private void FixedUpdate() {
