@@ -63,7 +63,11 @@ public class Sliding : MonoBehaviour {
     }
 
     private void StartSlide() {
-        dash.Dashar();
+        if (canDash)
+        {
+            canDash = false;
+            dash.Dashar();
+        }
 
         cc.center = deslizando;
         cc.direction = 2;
