@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ParticlesController : MonoBehaviour {
     public ParticleSystem walkSmoke, burst, hitFeedback;
-    public PlayerMovement pm;
-    public Rigidbody rb;
+    private PlayerMovement pm;
+    private Rigidbody rb;
 
     bool walkSmokeToggle;
+
+    private void Start()
+    {
+        pm = GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {

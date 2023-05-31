@@ -13,6 +13,9 @@ public class Respawn : MonoBehaviour {
     }
 
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.F9))
+            Respawnar();
+
         if (InterfaceManager.fimDeJogo && !respawnando) {
             respawnando = true;
             FimDeJogo();

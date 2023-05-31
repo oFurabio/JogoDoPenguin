@@ -22,11 +22,9 @@ public class Caminho3 : MonoBehaviour {
         }
     }
 
-    private void Update()
-    {
+    private void Update() {
         // Se o objeto chegou no ponto atual, avança para o próximo ponto
-        if (Vector3.Distance(transform.position, waypointList[currentWaypoint].position) < 0.1f)
-        {
+        if (Vector3.Distance(transform.position, waypointList[currentWaypoint].position) < 0.1f) {
             currentWaypoint = (currentWaypoint + 1) % waypointList.Length;
         }
 

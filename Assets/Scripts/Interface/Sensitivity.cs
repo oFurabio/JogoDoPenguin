@@ -8,7 +8,14 @@ public class Sensitivity : MonoBehaviour {
     public CinemachineFreeLook cam;
     public Toggle x, y;
     public Slider senX, senY;
-    
+
+    private void Start() {
+        senX.value = cam.m_XAxis.m_MaxSpeed;
+        senY.value = cam.m_YAxis.m_MaxSpeed;
+        x.isOn = cam.m_XAxis.m_InvertInput;
+        y.isOn = cam.m_YAxis.m_InvertInput;
+    }
+
     public void SensivelX()
     {
         cam.m_XAxis.m_MaxSpeed = senX.value;

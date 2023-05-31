@@ -40,17 +40,18 @@ public class PlayerMovement : MonoBehaviour
     [Header("Inclinação")]
     [Range(0f, 75f)]
     public float maxSlopeAngle = 45f;
-    public float angle;
+    [HideInInspector] public float angle;
     private RaycastHit slopeHit;
     private bool exitingSlope = false;
 
 
     [Header("Referências")]
     public Transform orientation;
-    public Animator animator;
     public Transform playerObj;
+    public Animator animator;
     private ParticlesController ps;
     private Rigidbody rb;
+    private Sliding sld;
 
 
     [Header("Outros")]
@@ -59,15 +60,6 @@ public class PlayerMovement : MonoBehaviour
     public bool dashing;
     private float hInput, vInput;
     Vector3 moveDirection;
-
-    //passos
-    public AudioClip passo;
-    private AudioSource audioSource;
-    
-    
-   
-
-   
 
     public enum MovementState
     {
@@ -80,12 +72,9 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         ps = GetComponent<ParticlesController>();
+        sld = GetComponent<Sliding>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
-        //passos
-        audioSource = GetComponent<AudioSource>();
-        rb = GetComponent<Rigidbody>();
     }
 
     private void OnDrawGizmosSelected()
@@ -99,7 +88,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.DrawRay(playerObj.transform.position, Vector3.down, Color.red);
 
-        if (Health.dead) {
+        if (Health.dead)
+        {
             vInput = 0f;
             hInput = 0f;
         }
@@ -116,18 +106,21 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
-        if (Grounded()) {
+        if (Grounded())
+        {
             canDouble = true;
         }
 
-      
+
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         MovePlayer();
     }
 
-    public bool Grounded() {
+    public bool Grounded()
+    {
         return Physics.CheckSphere(playerObj.transform.position, radius, whatIsGround);
     }
 
@@ -153,7 +146,8 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if(Input.GetButtonDown("Jump") &&!Grounded() && canDouble) {
+        if (Input.GetButtonDown("Jump") && !Grounded() && canDouble)
+        {
             SecondaryJump();
         }
     }
@@ -194,26 +188,23 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.ar;
         }
 
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
+        if (vInput == 0 && hInput == 0)
         {
-            if (vInput == 0 && hInput == 0)
-            {
-                StopAllCoroutines();
-            }
-            else
-            {
+            StopAllCoroutines();
+            moveSpeed = walkSpeed;
+            desiredMoveSpeed = moveSpeed;
+        } else {
+            if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0) {
                 StopAllCoroutines();
                 StartCoroutine(SmootlyLerpMoveSpeed());
-            }
-        }
-        else
-        {
-            moveSpeed = desiredMoveSpeed;
+            } else {
+                moveSpeed = desiredMoveSpeed;
 
-            if (desiredMoveSpeed < slideSpeed)
-                desiredMoveSpeed = walkSpeed;
-            else
-                desiredMoveSpeed = slideSpeed;
+                if (desiredMoveSpeed < slideSpeed)
+                    desiredMoveSpeed = walkSpeed;
+                else
+                    desiredMoveSpeed = slideSpeed;
+            }
         }
 
         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
@@ -231,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
                 StopAllCoroutines();
                 moveSpeed = desiredMoveSpeed;
             }
-                
+
         }
 
         lastDesiredMoveSpeed = desiredMoveSpeed;
@@ -319,6 +310,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        sld.StopSlide();
+
         exitingSlope = true;
         ps.burst.Play();
 
@@ -328,6 +321,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void SecondaryJump()
     {
+        sld.StopSlide();
+
         canDouble = false;
         ps.burst.Play();
 
@@ -342,8 +337,10 @@ public class PlayerMovement : MonoBehaviour
         exitingSlope = false;
     }
 
-    public bool OnSlope() {
-        if (Physics.Raycast(playerObj.transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit, whatIsGround)) {
+    public bool OnSlope()
+    {
+        if (Physics.Raycast(playerObj.transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + aBit, whatIsGround))
+        {
             angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
@@ -351,15 +348,18 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    public Vector3 GetSlopeMoveDirection(Vector3 direction) {
+    public Vector3 GetSlopeMoveDirection(Vector3 direction)
+    {
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
-    public void Ataque() {
+    public void Ataque()
+    {
         ps.hitFeedback.Play();
         rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(1.5f * secondJumpForce * transform.up, ForceMode.Impulse);
-        readyToJump = true;
+        canDouble = true;
+        sld.canDash = true;
     }
 
     private void Animacao()

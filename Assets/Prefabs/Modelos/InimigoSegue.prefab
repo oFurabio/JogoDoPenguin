@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 1230244565434760472}
   - component: {fileID: 4645499590740606419}
   - component: {fileID: 4645499590740606416}
-  - component: {fileID: 4645499590740606417}
   - component: {fileID: 4645499590740606421}
+  - component: {fileID: 552232283949549397}
   m_Layer: 0
   m_Name: InimigoSegue
   m_TagString: Enemy
@@ -172,20 +172,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3423412, y: 1.0987294, z: 2.8347855}
   m_Center: {x: 0.00035369396, y: 0.5505098, z: 0.1333847}
---- !u!114 &4645499590740606417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5528529809918557656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11809127e178b0c40adeb9c47fb596a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  waypoints: {fileID: 0}
 --- !u!114 &4645499590740606421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +184,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90361ad62c46ea143bcc8db377472443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &552232283949549397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528529809918557656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486abcb251b6d4b499e5c900a90337a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  moveSpeed: 4
+  minDistance: 3
+  target: {fileID: 0}
+  dash: 0
+  parar: 3
 --- !u!1 &6534503669648144830
 GameObject:
   m_ObjectHideFlags: 0

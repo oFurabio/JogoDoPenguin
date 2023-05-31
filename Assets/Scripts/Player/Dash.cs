@@ -74,8 +74,10 @@ public class Dash : MonoBehaviour
 
     private void ResetDash()
     {
+        if(Input.GetButton("Slide"))
+            pm.sliding = true;
+        
         pm.dashing = false;
-        pm.sliding = true;
 
         if (disableGravity)
             rb.useGravity = true;

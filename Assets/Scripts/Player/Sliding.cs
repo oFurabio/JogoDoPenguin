@@ -14,7 +14,7 @@ public class Sliding : MonoBehaviour {
     [Header("Deslizando")]
     [Range(50f, 200f)]
     public float slideForce = 200f;
-    private bool canDash = true;
+    public bool canDash = true;
 
     [Header("Rotação")]
     public Vector3 inicial = new(0f, 1.075f, 0.05f);
@@ -39,14 +39,15 @@ public class Sliding : MonoBehaviour {
         if (pm.PodeMover())
         {
             vInput = Input.GetAxis("Vertical");
+            hInput = Input.GetAxis("Horizontal");
 
-            if (Input.GetButtonDown("Slide") && vInput != 0f)
+            if (Input.GetButtonDown("Slide") && (vInput != 0f || hInput != 0f))
                 StartSlide();
 
             if (Input.GetButtonUp("Slide") && pm.sliding)
                 StopSlide();
 
-            if (vInput == 0f)
+            if (vInput == 0f && hInput == 0)
                 StopSlide();
 
             if (pm.Grounded())
@@ -85,7 +86,7 @@ public class Sliding : MonoBehaviour {
             rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
     }
 
-    private void StopSlide() {
+    public void StopSlide() {
         pm.sliding = false;
 
         cc.center = inicial;
@@ -93,9 +94,13 @@ public class Sliding : MonoBehaviour {
     }
     
     private void Rotacionar() {
+        if (!pm.Grounded()) {
+            playerObj.rotation = Quaternion.Euler(0f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+        } else {
         if(rb.velocity.y > 0f)
             playerObj.rotation = Quaternion.Euler(-pm.angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
         else
             playerObj.rotation = Quaternion.Euler(pm.angle, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
+        }
     }
 }

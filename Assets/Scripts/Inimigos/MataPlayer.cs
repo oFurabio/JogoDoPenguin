@@ -14,8 +14,9 @@ public class MataPlayer : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            if (pm.sliding) {
+            if (pm.sliding || pm.dashing) {
                 pm.Ataque();
+                Invoke(nameof(Respawn), 4);
                 gameObject.SetActive(false);
             } else {
                 ph.currentHealth--;
@@ -23,4 +24,9 @@ public class MataPlayer : MonoBehaviour {
         }
     }
 
+
+    public void Respawn() {
+        Debug.Log("Inimigando");
+        gameObject.SetActive(true);
+    }
 }

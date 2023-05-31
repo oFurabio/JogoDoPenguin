@@ -10121,12 +10121,11 @@ MonoBehaviour:
   maxSlopeAngle: 45
   angle: 0
   orientation: {fileID: 5948375635752391954}
-  animator: {fileID: 5948375635724118263}
   playerObj: {fileID: 5948375633756240866}
+  animator: {fileID: 5948375635724118263}
   state: 0
   sliding: 0
   dashing: 0
-  passo: {fileID: 0}
 --- !u!114 &5948375635043181161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10143,6 +10142,7 @@ MonoBehaviour:
   playerObj: {fileID: 5948375633756240866}
   cc: {fileID: 5948375635724118262}
   slideForce: 100
+  canDash: 1
   inicial: {x: 0, y: 1.075, z: 0.05}
   deslizando: {x: 0, y: 0.5, z: 0.5}
 --- !u!114 &5948375635043181160
@@ -10166,7 +10166,7 @@ MonoBehaviour:
   allowAllDirections: 0
   disableGravity: 1
   resetVel: 1
-  dashCd: 0
+  dashCd: 0.75
 --- !u!114 &5948375635043181143
 MonoBehaviour:
   m_ObjectHideFlags: 0
