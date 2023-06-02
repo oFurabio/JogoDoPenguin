@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class MenuPrincipal : MonoBehaviour {
     public GameObject menu, config, credits;
-    [SerializeField] private string scene;
 
     public void IniciarJogo() {
         GameState.GerenteEstado(0);
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(1);
     }
 
     public void Config() {

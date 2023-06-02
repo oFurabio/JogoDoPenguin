@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = walkSpeed;
             desiredMoveSpeed = moveSpeed;
         } else {
-            if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0) {
+            if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 5f && moveSpeed != 0) {
                 StopAllCoroutines();
                 StartCoroutine(SmootlyLerpMoveSpeed());
             } else {

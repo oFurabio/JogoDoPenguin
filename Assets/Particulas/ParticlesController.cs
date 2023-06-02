@@ -15,23 +15,16 @@ public class ParticlesController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
-    {
-        if (pm.Grounded() && pm.sliding && rb.velocity.magnitude > 0.1f && !walkSmokeToggle)
-        {
+    void Update() {
+        if (pm.Grounded() && pm.sliding && rb.velocity.magnitude > 0.1f && !walkSmokeToggle) {
             walkSmoke.Play();
             walkSmokeToggle = true;
-        }
-        else if (rb.velocity.magnitude < 0.1f && walkSmokeToggle)
-        {
+        } else if (rb.velocity.magnitude < 7f && walkSmokeToggle) {
+            walkSmoke.Stop();
+            walkSmokeToggle = false;
+        } else if (!pm.Grounded() && walkSmokeToggle) {
             walkSmoke.Stop();
             walkSmokeToggle = false;
         }
-        else if (!pm.Grounded() && walkSmokeToggle)
-        {
-            walkSmoke.Stop();
-            walkSmokeToggle = false;
-        }
-
     }
 }
