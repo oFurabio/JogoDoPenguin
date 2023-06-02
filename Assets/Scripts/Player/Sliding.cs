@@ -73,10 +73,12 @@ public class Sliding : MonoBehaviour {
         } else
         {
             pm.sliding = true;
+            AudioManager.instance.PlaySFX("Dash");
         }
     }
 
     private void SlidingMovement() {
+        
         Vector3 inputDirection = orientation.forward * vInput + orientation.right * hInput;
 
         //  Deslizando normalmente

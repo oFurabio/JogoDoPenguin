@@ -106,8 +106,7 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
-        if (Grounded())
-        {
+        if (Grounded()) {
             canDouble = true;
         }
 
@@ -310,6 +309,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        AudioManager.instance.PlaySFX("Pulo");
         sld.StopSlide();
 
         exitingSlope = true;
@@ -321,6 +321,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SecondaryJump()
     {
+        AudioManager.instance.PlaySFX("Pulo");
         sld.StopSlide();
 
         canDouble = false;

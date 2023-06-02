@@ -81,8 +81,10 @@ public class InterfaceManager : MonoBehaviour
 
     public void MenuPrincipal()
     {
-        GameState.GerenteEstado(1);
-        SceneManager.LoadScene("Menu");
+        GameState.GerenteEstado(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene(0);
     }
 
 
