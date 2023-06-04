@@ -18,7 +18,10 @@ public class Health : MonoBehaviour {
     {
         if (currentHealth <= 0)
             dead = true;
-
+        if(dead)
+        {
+            AudioManager.instance.PlaySFX("MortePlayer");
+        }
         if (dead) {
             InterfaceManager.fimDeJogo = true;
             GameState.GerenteEstado(2);

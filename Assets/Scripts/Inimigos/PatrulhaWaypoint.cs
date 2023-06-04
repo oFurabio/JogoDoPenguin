@@ -20,6 +20,8 @@ public class PatrulhaWaypoint : MonoBehaviour {
         {
             waypointList[i] = waypoints.transform.GetChild(i);
         }
+
+       
     }
 
     private void Update()
@@ -36,5 +38,9 @@ public class PatrulhaWaypoint : MonoBehaviour {
         // Rotacionar em direção ao próximo ponto
         Vector3 direction = waypointList[currentWaypoint].position - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+
+        
     }
+
+   
 }

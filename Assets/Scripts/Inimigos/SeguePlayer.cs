@@ -27,6 +27,8 @@ public class SeguePlayer : MonoBehaviour
         }
 
         transform.position = waypointList[currentWaypointIndex].position;
+
+       
     }
 
     void Update()
@@ -85,7 +87,12 @@ public class SeguePlayer : MonoBehaviour
             moveSpeed = 0;
         }
 
+        
 
 
     }
+
+   
+
+
 }
