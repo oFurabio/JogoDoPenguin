@@ -5,13 +5,12 @@ using UnityEngine;
 public class SeguePlayer : MonoBehaviour
 {
     [Header("Player")]
-    public LayerMask playerLayer;
+    public LayerMask playerL;
+    public LayerMask chao;
     public float alcance = 5f;
-    public LayerMask ground;
 
     private PatrulhaWaypoint pw;
     private GameObject player;
-    private bool following = false;
 
     private void Start()
     {
@@ -21,37 +20,38 @@ public class SeguePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (pw.segueOPlayer && !Health.dead)
-        {
-            if (Physics.CheckSphere(transform.position, alcance, playerLayer))
-                following = true;
-            else
-                following = false;
-
-            if (following && TaNoChao()) {
-                pw.enabled = false;
-                SegueOPlayer();
+        if (pw.segueOPlayer) {
+            if (PlayerOnRange() && !Health.dead) {
+                if (IsGrounded()) {
+                    pw.enabled = false;
+                    FollowPlayer();
+                }
             }
             else
                 pw.enabled = true;
         }
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, alcance);
     }
 
-    private void SegueOPlayer() {
+    private void FollowPlayer()
+    {
         Vector3 direction = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z) - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
         transform.position = Vector3.MoveTowards(transform.position, new(player.transform.position.x, transform.position.y, player.transform.position.z), (pw.velocidade * 2) * Time.deltaTime);
     }
 
-    private bool TaNoChao() {
-        if (Physics.Raycast(transform.position, Vector3.down, 0.5f, ground))
-            return true;
+    private bool PlayerOnRange()
+    {
+        return Physics.CheckSphere(transform.position, alcance, playerL);
+    }
 
-        return false;
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 0.5f, chao);
     }
 }

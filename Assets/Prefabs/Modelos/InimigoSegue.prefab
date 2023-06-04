@@ -214,13 +214,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486abcb251b6d4b499e5c900a90337a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer:
+  playerL:
     serializedVersion: 2
     m_Bits: 1024
-  alcance: 5
-  ground:
+  chao:
     serializedVersion: 2
     m_Bits: 64
+  alcance: 5
 --- !u!1 &6534503669648144830
 GameObject:
   m_ObjectHideFlags: 0
