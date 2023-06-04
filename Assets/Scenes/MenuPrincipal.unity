@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 262428757}
   - component: {fileID: 262428756}
   - component: {fileID: 262428759}
+  - component: {fileID: 262428760}
   m_Layer: 5
   m_Name: Sair
   m_TagString: Untagged
@@ -571,6 +572,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5370a20a443b3ff4489cc7e57d1a23a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &262428760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262428754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb2a665fc50da341a4437bb4d7a78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &277409776
@@ -1794,6 +1807,7 @@ GameObject:
   - component: {fileID: 915487026}
   - component: {fileID: 915487025}
   - component: {fileID: 915487024}
+  - component: {fileID: 915487028}
   - component: {fileID: 915487027}
   m_Layer: 5
   m_Name: Jogar
@@ -1819,7 +1833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -232, y: 145}
+  m_AnchoredPosition: {x: -189.46002, y: 145}
   m_SizeDelta: {x: 478, y: 197}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &915487024
@@ -1926,6 +1940,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5370a20a443b3ff4489cc7e57d1a23a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &915487028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915487022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb2a665fc50da341a4437bb4d7a78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &923678245
@@ -2078,6 +2104,7 @@ GameObject:
   - component: {fileID: 1075705835}
   - component: {fileID: 1075705834}
   - component: {fileID: 1075705833}
+  - component: {fileID: 1075705837}
   - component: {fileID: 1075705836}
   m_Layer: 5
   m_Name: Creditos
@@ -2210,6 +2237,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5370a20a443b3ff4489cc7e57d1a23a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1075705837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075705831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb2a665fc50da341a4437bb4d7a78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1081357981
@@ -2776,6 +2815,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157903243}
+  - component: {fileID: 1157903247}
+  - component: {fileID: 1157903246}
+  - component: {fileID: 1157903245}
+  - component: {fileID: 1157903244}
   m_Layer: 0
   m_Name: ManagerConfig
   m_TagString: Untagged
@@ -2798,6 +2841,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157903244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157903242}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be4f1c9216aba948b9b88fdd30b41c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  x: {fileID: 0}
+  y: {fileID: 0}
+  senX: {fileID: 0}
+  senY: {fileID: 0}
+--- !u!114 &1157903245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157903242}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4648606f8d1114ba56e80019534679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inimigos: []
+  respawnDelay: 0
+--- !u!114 &1157903246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157903242}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4509f051c5c58b14ba28d999d0d46905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1157903247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157903242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be89dfa67af11d4bbaf7615104986eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1199765512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,6 +3746,7 @@ GameObject:
   - component: {fileID: 1886013037}
   - component: {fileID: 1886013036}
   - component: {fileID: 1886013035}
+  - component: {fileID: 1886013039}
   - component: {fileID: 1886013038}
   m_Layer: 5
   m_Name: Config
@@ -3780,6 +3879,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5370a20a443b3ff4489cc7e57d1a23a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1886013039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886013033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb2a665fc50da341a4437bb4d7a78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1983854792

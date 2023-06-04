@@ -4,95 +4,54 @@ using UnityEngine;
 
 public class SeguePlayer : MonoBehaviour
 {
-    private Transform[] waypointList;
-    public GameObject waypoints;
+    [Header("Player")]
+    public LayerMask playerLayer;
+    public float alcance = 5f;
+    public LayerMask ground;
 
-    public float moveSpeed = 0f;
-    public float minDistance = 3f;
-    public Transform target;
-    public float dash = 0.0f;
-    public float parar = 3;
+    private PatrulhaWaypoint pw;
+    private GameObject player;
+    private bool following = false;
 
-    private int currentWaypointIndex = 0;
-    private bool isFollowingPlayer = false;
-
-    void Start()
+    private void Start()
     {
-        int numWaypoints = waypoints.transform.childCount;
-        waypointList = new Transform[numWaypoints];
-
-        for (int i = 0; i < numWaypoints; i++)
-        {
-            waypointList[i] = waypoints.transform.GetChild(i);
-        }
-
-        transform.position = waypointList[currentWaypointIndex].position;
-
-       
+        pw = GetComponent<PatrulhaWaypoint>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void Update()
+    private void Update()
     {
-
-        if (!isFollowingPlayer)
+        if (pw.segueOPlayer && !Health.dead)
         {
+            if (Physics.CheckSphere(transform.position, alcance, playerLayer))
+                following = true;
+            else
+                following = false;
 
-            transform.position = Vector3.MoveTowards(transform.position, waypointList[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
-
-            if (transform.position == waypointList[currentWaypointIndex].position)
-            {
-                currentWaypointIndex++;
-
-                if (currentWaypointIndex >= waypointList.Length)
-                {
-                    currentWaypointIndex = 0;
-                }
+            if (following && TaNoChao()) {
+                pw.enabled = false;
+                SegueOPlayer();
             }
-
-            if (Vector3.Distance(transform.position, target.position) <= minDistance)
-            {
-                isFollowingPlayer = true;
-            }
+            else
+                pw.enabled = true;
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new(target.position.x, transform.position.y, target.position.z), moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, target.position) > minDistance * 2)
-            {
-                isFollowingPlayer = false;
-            }
-        }
-
-        if (isFollowingPlayer)
-        {
-            //novo
-            Vector3 directionPlayer = new Vector3(target.position.x, transform.position.y, target.position.z) - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionPlayer), 0.1f);
-        }
-        else
-        {
-            //novo
-            Vector3 direction = waypointList[currentWaypointIndex].position - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-        }
-
-        if (Vector3.Distance(transform.position, target.position) >= minDistance / 2)
-        {
-            moveSpeed = 5;
-        }
-
-        if (Vector3.Distance(transform.position, target.position) <= parar)
-        {
-            moveSpeed = 0;
-        }
-
-        
-
-
     }
 
-   
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, alcance);
+    }
 
+    private void SegueOPlayer() {
+        Vector3 direction = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z) - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+        transform.position = Vector3.MoveTowards(transform.position, new(player.transform.position.x, transform.position.y, player.transform.position.z), (pw.velocidade * 2) * Time.deltaTime);
+    }
 
+    private bool TaNoChao() {
+        if (Physics.Raycast(transform.position, Vector3.down, 0.5f, ground))
+            return true;
+
+        return false;
+    }
 }
