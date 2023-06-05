@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Drag : MonoBehaviour
-{
+public class Drag : MonoBehaviour {
     public Canvas canvas;
 
-    public void DragHandler(BaseEventData data)
-    {
+    public void DragHandler(BaseEventData data) {
         PointerEventData pointerData = (PointerEventData)data;
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
