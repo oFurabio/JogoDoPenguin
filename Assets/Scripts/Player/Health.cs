@@ -8,6 +8,8 @@ public class Health : MonoBehaviour {
     public int maxHealth = 1;
     public static bool dead = false;
 
+   
+
     private void Start() {
         rb = GetComponent<Rigidbody>();
         dead = false;
@@ -21,6 +23,8 @@ public class Health : MonoBehaviour {
         if(dead)
         {
             AudioManager.instance.PlaySFX("MortePlayer");
+           
+            
         }
         if (dead) {
             InterfaceManager.fimDeJogo = true;

@@ -73,7 +73,7 @@ public class Sliding : MonoBehaviour {
         } else
         {
             pm.sliding = true;
-            AudioManager.instance.PlaySFX("Dash");
+            
         }
     }
 
@@ -95,6 +95,7 @@ public class Sliding : MonoBehaviour {
 
         cc.center = inicial;
         cc.direction = 1;
+
     }
     
     private void Rotacionar() {

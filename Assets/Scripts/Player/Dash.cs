@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class Dash : MonoBehaviour
 {
+
+   
+
     [Header("Referências")]
     public Transform orientation;
     public Transform playerObj;
@@ -28,12 +33,17 @@ public class Dash : MonoBehaviour
     private void Start() {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+       
+
+
     }
 
     private void Update()
     {
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
+
+        ParaDash();
     }
 
     public void Dashar() {
@@ -77,15 +87,18 @@ public class Dash : MonoBehaviour
         if (Input.GetButton("Slide"))
         {
             AudioManager.instance.PlaySFX("Dash");
+           
             pm.sliding = true;
         }
-        
+       
+       
         pm.dashing = false;
 
         if (disableGravity)
             rb.useGravity = true;
     }
 
+   
     private Vector3 GetDirection(Transform forwardT)
     {
         float hInput = Input.GetAxis("Horizontal");
@@ -103,5 +116,11 @@ public class Dash : MonoBehaviour
 
         return direction.normalized;
     }
-
+    private void ParaDash()
+    {
+        if(pm.sliding ==false)
+        {
+            AudioManager.instance.sfxSource.Stop();
+        }
+    }
 }
