@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ReativaInimigos : MonoBehaviour {
     public GameObject[] inimigos;
-    public float respawnDelay;
+    public float respawnDelay = 5f;
     private int i;
-    //bool putiz = false;
 
-    void Update() {
+    private void Update() {
         if (Health.dead) {
             for(i = 0; i < inimigos.Length; i++) {
                 inimigos[i].SetActive(true);

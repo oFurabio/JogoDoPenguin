@@ -7,32 +7,29 @@ using UnityEngine.SceneManagement;
 
 public class InterfaceManager : MonoBehaviour
 {
-    public static bool jogoPausado = false;
-    public static bool fimDeJogo = false;
+    [Header("Paineis")]
+    public GameObject pauseMenu;
+    public GameObject configuracoesMenu, confirmacao, botoes, developer;
 
-    public GameObject pauseMenu, configuracoesMenu, confirmacao, confirmacaoMenu, botoes, developer;
-    public GameObject continuar, voltar, cancela1, cancela2;
-
-    private void Start() {
-        jogoPausado = false;
-        fimDeJogo = false;
-    }
+    [Header("Primeiro Botão")]
+    public GameObject pausePri;
+    public GameObject configPri, confirmaPri;
 
     void Update()
     {
         if (Input.GetButtonDown("Debug"))
         {
-            if (developer.activeInHierarchy) {
-                developer.SetActive(false);
-            } else {
+            if (!developer.activeInHierarchy) {
                 developer.SetActive(true);
+            } else {
+                developer.SetActive(false);
             }
         }
             
 
-        if (Input.GetButtonDown("Cancel") && !fimDeJogo)
+        if (Input.GetButtonDown("Cancel") && !GameState.fimDeJogo)
         {
-            if (!jogoPausado)
+            if (!GameState.jogoPausado)
                 Pause();
             else
                 Resume();
@@ -40,19 +37,16 @@ public class InterfaceManager : MonoBehaviour
     }
 
     private void Pause() {
-        jogoPausado = true;
         pauseMenu.SetActive(true);
         GameState.GerenteEstado(1);
-        AbriuMenu(continuar);
+        TrocaSelecao(pausePri);
     }
 
     public void Resume() {
-        jogoPausado = false;
+        botoes.SetActive(true);
         pauseMenu.SetActive(false);
         configuracoesMenu.SetActive(false);
         confirmacao.SetActive(false);
-        botoes.SetActive(true);
-        AbriuMenu(continuar);
         GameState.GerenteEstado(0);
     }
 
@@ -60,21 +54,20 @@ public class InterfaceManager : MonoBehaviour
     {
         if (!configuracoesMenu.activeInHierarchy)
         {
-            pauseMenu.SetActive(false);
             configuracoesMenu.SetActive(true);
-            AbriuMenu(voltar);
+            pauseMenu.SetActive(false);
+            TrocaSelecao(configPri);
         }
         else
         {
-            configuracoesMenu.SetActive(false);
             pauseMenu.SetActive(true);
-            AbriuMenu(continuar);
+            configuracoesMenu.SetActive(false);
+            TrocaSelecao(pausePri);
         }
     }
 
     public void Reiniciar()
     {
-        jogoPausado = false;
         GameState.GerenteEstado(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -87,34 +80,32 @@ public class InterfaceManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Cancelar()
+    {
+        botoes.SetActive(true);
+        confirmacao.SetActive(false);
+        TrocaSelecao(pausePri);
+    }
 
     public void SairDoJogo()
     {
-        if (confirmacao.activeInHierarchy)
+        if (!confirmacao.activeInHierarchy)
         {
-            confirmacao.SetActive(false);
-            botoes.SetActive(true);
-            Debug.Log("Jogo fechado");
-            Application.Quit();
+            confirmacao.SetActive(true);
+            botoes.SetActive(false);
+            TrocaSelecao(confirmaPri);
         }
         else
         {
-            botoes.SetActive(false);
-            confirmacao.SetActive(true);
-            AbriuMenu(cancela2);
+            botoes.SetActive(true);
+            confirmacao.SetActive(false);
+            Debug.Log("Jogo fechado");
+            Application.Quit();
         }
 
     }
 
-    public void Cancelar()
-    {
-        confirmacao.SetActive(false);
-        confirmacaoMenu.SetActive(false);
-        botoes.SetActive(true);
-        AbriuMenu(continuar);
-    }
-
-    private void AbriuMenu(GameObject opcao)
+    private void TrocaSelecao(GameObject opcao)
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(opcao);

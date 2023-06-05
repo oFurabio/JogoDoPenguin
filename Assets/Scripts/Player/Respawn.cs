@@ -16,7 +16,7 @@ public class Respawn : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F9))
             Respawnar();
 
-        if (InterfaceManager.fimDeJogo && !respawnando) {
+        if (GameState.fimDeJogo && !respawnando) {
             respawnando = true;
             FimDeJogo();
         }
@@ -24,7 +24,7 @@ public class Respawn : MonoBehaviour {
 
     private void Respawnar() {
         Debug.Log("Respawning...");
-        InterfaceManager.fimDeJogo = false;
+        GameState.fimDeJogo = false;
         Health.dead = false;
         vida.currentHealth = 1;
         transform.position = respawnPosition;

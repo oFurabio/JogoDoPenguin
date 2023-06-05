@@ -123,12 +123,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics.CheckSphere(playerObj.transform.position, radius, whatIsGround);
     }
 
-    public bool PodeMover()
-    {
-        if (InterfaceManager.jogoPausado || InterfaceManager.fimDeJogo)
-            return false;
-
-        return true;
+    public bool PodeMover() {
+        return !GameState.jogoPausado || !GameState.fimDeJogo;
     }
 
     private void MyInput()

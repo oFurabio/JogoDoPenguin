@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MataPlayer : MonoBehaviour {
+public class InimigoDestruivel : MonoBehaviour {
     private Vector3 posicao;
     private PlayerMovement pm;
     private Health ph;
@@ -26,9 +26,7 @@ public class MataPlayer : MonoBehaviour {
         }
     }
 
-
     public void Respawn() {
-        Debug.Log("Inimigando");
         transform.position = posicao;
         gameObject.SetActive(true);
     }

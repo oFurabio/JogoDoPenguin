@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class AtivaJones : MonoBehaviour
 {
+    public bool resetPosition;
     public Vector3 posiIni;
     public GameObject jones;
 
-    private void Start()
-    {
+    private void Start() {
         posiIni = jones.transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             jones.SetActive(true);
         }
