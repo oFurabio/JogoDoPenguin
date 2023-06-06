@@ -10688,7 +10688,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -2.9778102e-10, y: 0.9994871, z: -0.032024518, w: -0.000000009293757}
+  m_LocalRotation: {x: -0.000000002501885, y: 0.9994871, z: -0.032024518, w: -0.000000078083985}
   m_LocalPosition: {x: 0.000000786805, y: 61, z: 264.83002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25634,11 +25634,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.000000026491314
+      value: -0.00000006088643
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -8.488071e-10
+      value: -0.000000001950859
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.y
@@ -25812,60 +25812,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: LoopSounds.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: musicSounds.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
+      objectReference: {fileID: 8300000, guid: 06ec47a50a6108140869973788a657e8, type: 3}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: sfxSounds.Array.data[0].name
+      value: Pulo
+      objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 06ec47a50a6108140869973788a657e8, type: 3}
+      objectReference: {fileID: 8300000, guid: bf8c62fa4dfa9294fa02e72d1ec0eb3f, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[1].name
-      value: Pulo
+      value: Morteinimigo
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: bf8c62fa4dfa9294fa02e72d1ec0eb3f, type: 3}
+      objectReference: {fileID: 8300000, guid: a801e968269b485469360b5c47486941, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[2].name
-      value: Morteinimigo
+      value: MortePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: a801e968269b485469360b5c47486941, type: 3}
+      objectReference: {fileID: 8300000, guid: 2fbce9af7132ee94e91aefa1df099eb9, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[3].name
-      value: MortePlayer
+      value: Botao
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[4].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 2fbce9af7132ee94e91aefa1df099eb9, type: 3}
+      objectReference: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[4].name
-      value: Botao
+      value: Point
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[5].clip
       value: 
-      objectReference: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
+      objectReference: {fileID: 8300000, guid: 8e1b54c312c0bfa40a8a34c6eee1a454, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.data[5].name
-      value: Point
+      value: Dash
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: LoopSounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
+      objectReference: {fileID: 8300000, guid: 2b4eb16f07b375843aa4fd1633f89a88, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: LoopSounds.Array.data[0].name
       value: Dash

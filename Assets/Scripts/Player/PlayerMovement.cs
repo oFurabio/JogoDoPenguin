@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
             canDouble = true;
         }
 
-
+        SoundJump();
     }
 
     private void FixedUpdate()
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
             readyToJump = false;
 
             Jump();
-
+            AudioManager.instance.PlaySFX("Pulo");
             Invoke(nameof(ResetJump), jumpCooldown);
            
         }
@@ -147,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
         {
            
             SecondaryJump();
+            AudioManager.instance.PlaySFX("Pulo");
         }
     }
 
@@ -308,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-       // AudioManager.instance.PlaySFX("PuloCerto2");
+        //AudioManager.instance.PlaySFX("Pulo");
         Debug.Log("Toquei1");
         sld.StopSlide();
 
@@ -323,15 +324,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            AudioManager.instance.PlaySFX("PuloTeste");
+            AudioManager.instance.PlaySFX("Pulo");
         }
     }
 
     private void SecondaryJump()
     {
-        //AudioManager.instance.PlaySFX("PuloCerto2");
+       // AudioManager.instance.PlaySFX("Pulo");
         sld.StopSlide();
-        Debug.Log("Toquei2");
+       
         canDouble = false;
         ps.burst.Play();
 
