@@ -134,15 +134,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton("Jump") && readyToJump && Grounded())
         {
+          
             readyToJump = false;
 
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+           
         }
 
         if (Input.GetButtonDown("Jump") && !Grounded() && canDouble)
         {
+           
             SecondaryJump();
         }
     }
@@ -305,7 +308,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        AudioManager.instance.PlaySFX("Pulo");
+       // AudioManager.instance.PlaySFX("PuloCerto2");
+        Debug.Log("Toquei1");
         sld.StopSlide();
 
         exitingSlope = true;
@@ -315,11 +319,19 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
+    private void SoundJump()
+    {
+        if(Input.GetButtonDown("Jump"))
+        {
+            AudioManager.instance.PlaySFX("PuloTeste");
+        }
+    }
+
     private void SecondaryJump()
     {
-        AudioManager.instance.PlaySFX("Pulo");
+        //AudioManager.instance.PlaySFX("PuloCerto2");
         sld.StopSlide();
-
+        Debug.Log("Toquei2");
         canDouble = false;
         ps.burst.Play();
 

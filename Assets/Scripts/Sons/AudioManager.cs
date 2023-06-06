@@ -5,8 +5,8 @@ using System;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public Sound[] musicSounds, sfxSounds, LoopSounds;
+    public AudioSource musicSource, sfxSource, loopSource;
 
     private void Awake() {
         if (instance == null) {
@@ -42,5 +42,19 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    
+    public void PlayLoop(string name)
+    {
+        Sound s = Array.Find(LoopSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            sfxSource.PlayOneShot(s.clip);
+        }
+    }
+
+
 }

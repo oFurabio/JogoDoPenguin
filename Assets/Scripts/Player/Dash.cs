@@ -86,7 +86,7 @@ public class Dash : MonoBehaviour
     {
         if (Input.GetButton("Slide"))
         {
-            AudioManager.instance.PlaySFX("Dash");
+            AudioManager.instance.PlayLoop("Dash");
            
             pm.sliding = true;
         }
