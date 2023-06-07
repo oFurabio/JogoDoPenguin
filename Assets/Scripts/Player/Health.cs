@@ -7,28 +7,23 @@ public class Health : MonoBehaviour {
     public int maxHealth = 1;
     public static bool dead = false;
 
+    private SfxManager sfx;
+
     private void Start() {
         dead = false;
         currentHealth = maxHealth;
+        sfx = GetComponentInChildren<SfxManager>();
     }
 
-    private void Update()
-    {
-        if (currentHealth <= 0)
+    private void Update() {
+        if (currentHealth <= 0 && !dead) {
+            sfx.Play("Morte");
             dead = true;
+        }
 
         if (dead) {
-            AudioManager.instance.PlaySFX("MortePlayer");
             GameState.fimDeJogo = true;
             GameState.GerenteEstado(2);
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy")) {
-            currentHealth--;
-        }
-
     }
 }

@@ -38,12 +38,9 @@ public class Dash : MonoBehaviour
 
     }
 
-    private void Update()
-    {
+    private void Update() {
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
-
-        ParaDash();
     }
 
     public void Dashar() {
@@ -84,13 +81,8 @@ public class Dash : MonoBehaviour
 
     private void ResetDash()
     {
-        if (Input.GetButton("Slide"))
-        {
-            AudioManager.instance.PlaySFX("Dash");
-           
+        if (Input.GetButton("Slide"))  
             pm.sliding = true;
-        }
-       
        
         pm.dashing = false;
 
@@ -115,12 +107,5 @@ public class Dash : MonoBehaviour
             direction = forwardT.forward;
 
         return direction.normalized;
-    }
-    private void ParaDash()
-    {
-        if(pm.sliding ==false)
-        {
-            AudioManager.instance.sfxSource.Stop();
-        }
     }
 }

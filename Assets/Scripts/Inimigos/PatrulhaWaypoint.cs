@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PatrulhaWaypoint : MonoBehaviour {
     [Header("Tipo de Inimigo")]
@@ -17,6 +14,7 @@ public class PatrulhaWaypoint : MonoBehaviour {
     [Header("Pontos de Patrulha")]
     public GameObject waypoints;    // GameObject com pontos de patrulha
 
+    private Vector3 direction;
     private Transform[] waypointList;   // Lista de pontos de patrulha
     private float waitTimer = 3f;       // Contador do tempo de espera
     private int currentWaypoint = 0;    // Índice do ponto atual na lista
@@ -35,13 +33,10 @@ public class PatrulhaWaypoint : MonoBehaviour {
         Patrulhando();
     }
 
-    private void Patrulhando()
-    {
-        if (waitTimer >= waitDelay)
-        {
+    private void Patrulhando() {
+        if (waitTimer >= waitDelay) {
             // Se o objeto chegou no ponto atual, avança para o próximo ponto e reseta o contador de espera
-            if (Vector3.Distance(transform.position, waypointList[currentWaypoint].position) < 0.1f)
-            {
+            if (Vector3.Distance(transform.position, waypointList[currentWaypoint].position) < 0.1f) {
                 if(temDelay)
                     waitTimer = 0f;
 
@@ -52,12 +47,10 @@ public class PatrulhaWaypoint : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, waypointList[currentWaypoint].position, velocidade * Time.deltaTime);
 
             // Rotacionar em direção ao próximo ponto
-            Vector3 direction = waypointList[currentWaypoint].position - transform.position;
+            direction = waypointList[currentWaypoint].position - transform.position;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
         }
         else
-        {
             waitTimer += Time.deltaTime;
-        }
     }
 }

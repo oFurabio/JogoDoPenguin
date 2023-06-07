@@ -9,7 +9,7 @@ public class InterfaceManager : MonoBehaviour
 {
     [Header("Paineis")]
     public GameObject pauseMenu;
-    public GameObject configuracoesMenu, confirmacao, botoes, developer;
+    public GameObject blur, configuracoesMenu, confirmacao, botoes, developer;
 
     [Header("Primeiro Botão")]
     public GameObject pausePri;
@@ -37,12 +37,14 @@ public class InterfaceManager : MonoBehaviour
     }
 
     private void Pause() {
+        blur.SetActive(true);
         pauseMenu.SetActive(true);
         GameState.GerenteEstado(1);
         TrocaSelecao(pausePri);
     }
 
     public void Resume() {
+        blur.SetActive(false);
         botoes.SetActive(true);
         pauseMenu.SetActive(false);
         configuracoesMenu.SetActive(false);

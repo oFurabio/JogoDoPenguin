@@ -8,6 +8,7 @@ public class MenuPrincipal : MonoBehaviour {
     [Header("Funcionamento")]
     public GameObject menu;
     public GameObject config, credits;
+
     [Header("Selecao")]
     public GameObject configPri;
     public GameObject creditPri, jogar;
@@ -18,31 +19,32 @@ public class MenuPrincipal : MonoBehaviour {
     }
 
     public void Config() {
-        config.SetActive(true);
-        menu.SetActive(false);
+        AtivaPainel(config);
 
         TrocaPrioridade(configPri);
     }
 
-    public void Credits()
-    {
-        credits.SetActive(true);
-        menu.SetActive(false);
+    public void Credits() {
+        AtivaPainel(credits);
 
         TrocaPrioridade(creditPri);
     }
 
-    public void Voltar()
-    {
-        menu.SetActive(true);
-        config.SetActive(false);
-        credits.SetActive(false);
+    public void Voltar() {
+        AtivaPainel(menu);
 
         TrocaPrioridade(jogar);
     }
 
-    private void TrocaPrioridade(GameObject go)
-    {
+    private void AtivaPainel(GameObject go) {
+        menu.SetActive(false);
+        config.SetActive(false);
+        credits.SetActive(false);
+
+        go.SetActive(true);
+    }
+
+    private void TrocaPrioridade(GameObject go) {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(go);
     }
