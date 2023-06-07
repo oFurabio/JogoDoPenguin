@@ -1,6 +1,8 @@
-using System;
-using UnityEngine.Audio;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Unity.VisualScripting;
 
 public class MusicManager : MonoBehaviour {
     public Sound[] sounds;
@@ -35,5 +37,17 @@ public class MusicManager : MonoBehaviour {
         s.source.pitch = s.pitch;
 
         s.source.Play();
+    }
+
+    public void StopPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Stop();
     }
 }

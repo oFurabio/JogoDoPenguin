@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sliding : MonoBehaviour {
+
+    public SfxManager sfx;
+
     [Header("Referências")]
     public Transform orientation;
     public Transform playerObj;
@@ -26,7 +29,7 @@ public class Sliding : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
         dash = GetComponent<Dash>();
-
+        sfx = GetComponentInChildren<SfxManager>();
     }
 
     private void Update() {
@@ -34,6 +37,7 @@ public class Sliding : MonoBehaviour {
         {
             vInput = 0f;
             StopSlide();
+           
         }
 
         if (pm.PodeMover())
@@ -66,7 +70,7 @@ public class Sliding : MonoBehaviour {
     private void StartSlide() {
         cc.center = deslizando;
         cc.direction = 2;
-
+        sfx.Play("Dash");
         if (canDash) {
             canDash = false;
             dash.Dashar();
@@ -90,14 +94,14 @@ public class Sliding : MonoBehaviour {
             rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
     }
 
-    public void StopSlide() {
+    public void StopSlide() 
+    {
         pm.sliding = false;
-
+        sfx.StopPlaying("Dash");        
         cc.center = inicial;
-        cc.direction = 1;
-
+        cc.direction = 1;                      
     }
-    
+
     private void Rotacionar() {
         if (!pm.Grounded()) {
             playerObj.rotation = Quaternion.Euler(0f, playerObj.eulerAngles.y, playerObj.eulerAngles.z);
