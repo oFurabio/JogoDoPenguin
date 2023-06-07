@@ -15,16 +15,6 @@ public class GameState : MonoBehaviour {
     }
 
     private void Awake() {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         estado = EstadoJogo.Gameplay;
         jogoPausado = false;
         fimDeJogo = false;
@@ -42,9 +32,6 @@ public class GameState : MonoBehaviour {
 
         else if (num == 2) {
             estado = EstadoJogo.Fim;
-            AudioManager.instance.musicSource.Stop();           
-          //AudioManager.instance.sfxSource.Stop();
-       
             Time.timeScale = 0.5f;
         }
 

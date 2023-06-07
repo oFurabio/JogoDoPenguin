@@ -23,7 +23,6 @@ public class Respawn : MonoBehaviour {
     }
 
     private void Respawnar() {
-        Debug.Log("Respawning...");
         GameState.fimDeJogo = false;
         Health.dead = false;
         vida.currentHealth = 1;

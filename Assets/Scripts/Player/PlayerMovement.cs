@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private ParticlesController ps;
     private Rigidbody rb;
     private Sliding sld;
+    private SfxManager sfx;
 
 
     [Header("Outros")]
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         ps = GetComponent<ParticlesController>();
+        sfx = GetComponentInChildren<SfxManager>();
         sld = GetComponent<Sliding>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -84,12 +86,10 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(playerObj.transform.position, radius);
     }
 
-    private void Update()
-    {
+    private void Update() {
         Debug.DrawRay(playerObj.transform.position, Vector3.down, Color.red);
 
-        if (Health.dead)
-        {
+        if (Health.dead) {
             vInput = 0f;
             hInput = 0f;
         }
@@ -118,13 +118,12 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    public bool Grounded()
-    {
+    public bool Grounded() {
         return Physics.CheckSphere(playerObj.transform.position, radius, whatIsGround);
     }
 
     public bool PodeMover() {
-        return !GameState.jogoPausado || !GameState.fimDeJogo;
+        return !GameState.jogoPausado && !GameState.fimDeJogo;
     }
 
     private void MyInput()
@@ -132,15 +131,12 @@ public class PlayerMovement : MonoBehaviour
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
 
-        if (Input.GetButton("Jump") && readyToJump && Grounded())
-        {
-          
+        if (Input.GetButton("Jump") && readyToJump && Grounded()) {
             readyToJump = false;
 
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
-           
         }
 
         if (Input.GetButtonDown("Jump") && !Grounded() && canDouble)
@@ -306,41 +302,29 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void Jump()
-    {
-       // AudioManager.instance.PlaySFX("PuloCerto2");
-        Debug.Log("Toquei1");
+    private void Jump() {
         sld.StopSlide();
 
         exitingSlope = true;
         ps.burst.Play();
+        sfx.Play("Pulo");
 
         rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
+    }    
 
-    private void SoundJump()
-    {
-        if(Input.GetButtonDown("Jump"))
-        {
-            AudioManager.instance.PlaySFX("PuloTeste");
-        }
-    }
-
-    private void SecondaryJump()
-    {
-        //AudioManager.instance.PlaySFX("PuloCerto2");
+    private void SecondaryJump() {
         sld.StopSlide();
-        Debug.Log("Toquei2");
+
         canDouble = false;
         ps.burst.Play();
+        sfx.Play("Pulo");
 
         rb.velocity = new(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * secondJumpForce, ForceMode.Impulse);
     }
 
-    private void ResetJump()
-    {
+    private void ResetJump() {
         readyToJump = true;
 
         exitingSlope = false;

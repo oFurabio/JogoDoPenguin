@@ -7,8 +7,7 @@ public class InimigoDestruivel : MonoBehaviour {
     private PlayerMovement pm;
     private Health ph;
 
-    private void Start()
-    {
+    private void Start() {
         posicao = transform.position;
         pm = FindObjectOfType<PlayerMovement>();
         ph = FindObjectOfType<Health>();

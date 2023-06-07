@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SeguePlayer : MonoBehaviour
@@ -38,11 +36,10 @@ public class SeguePlayer : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, alcance);
     }
 
-    private void FollowPlayer()
-    {
+    private void FollowPlayer() {
         Vector3 direction = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z) - transform.position;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-        transform.position = Vector3.MoveTowards(transform.position, new(player.transform.position.x, transform.position.y, player.transform.position.z), (pw.velocidade * 2) * Time.deltaTime);
+
+        transform.SetPositionAndRotation(Vector3.MoveTowards(transform.position, new(player.transform.position.x, transform.position.y, player.transform.position.z), (pw.velocidade * 2) * Time.deltaTime), Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f));
     }
 
     private bool PlayerOnRange()

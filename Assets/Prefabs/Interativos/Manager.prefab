@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 471456995020936147}
   - component: {fileID: 471456995020936146}
   - component: {fileID: 471456995020936173}
-  - component: {fileID: 471456995020936172}
-  - component: {fileID: 163026211}
+  - component: {fileID: 906468306141987316}
   m_Layer: 0
-  m_Name: ManagerConfig
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -80,24 +79,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   respawnDelay: 5
---- !u!114 &471456995020936172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471456995020936175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be4f1c9216aba948b9b88fdd30b41c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  x: {fileID: 0}
-  y: {fileID: 0}
-  senX: {fileID: 0}
-  senY: {fileID: 0}
---- !u!114 &163026211
+--- !u!114 &906468306141987316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,4 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b764896d9bfd9a459fad37d3123aa9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  am: {fileID: 24100000, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+  audioMixer: {fileID: 24100000, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+  master: {fileID: 0}
+  musica: {fileID: 0}
+  sfx: {fileID: 0}
+  ambiente: {fileID: 0}
