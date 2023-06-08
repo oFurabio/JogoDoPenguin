@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18931773, g: 0.5368866, b: 0.84186155, a: 1}
+  m_IndirectSpecularColor: {r: 0.18969211, g: 0.53674483, b: 0.8441448, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1077,6 +1077,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63896464}
   m_CullTransparentMesh: 1
+--- !u!114 &81902167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
+  m_PrefabInstance: {fileID: 1563904149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b561fa32578e7f4aa0b9eab1306ab90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &90445134
 GameObject:
   m_ObjectHideFlags: 0
@@ -10871,7 +10882,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -2.97784e-10, y: 0.9994871, z: -0.03202461, w: -0.000000009293824}
+  m_LocalRotation: {x: -0.0000000025018947, y: 0.9994871, z: -0.03202461, w: -0.00000007808405}
   m_LocalPosition: {x: 0.000000786805, y: 58.9, z: 471.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14835,6 +14846,7 @@ MonoBehaviour:
   pausePri: {fileID: 1433479606}
   configPri: {fileID: 1122016760}
   confirmaPri: {fileID: 770539721}
+  sfx: {fileID: 927653607}
 --- !u!114 &1243164345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18316,7 +18328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[0].clip
@@ -18333,14 +18345,14 @@ PrefabInstance:
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: eb20cf57a15911e43a45025d15ef15c8, type: 3}
+      objectReference: {fileID: 8300000, guid: a7b565f1127e39e4ab365e97c639f1f2, type: 3}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[1].loop
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[1].name
-      value: Gameplay
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[0].pitch
@@ -18372,7 +18384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[1].spatialBlend
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7228145749593022026, guid: 06940886d458a1c419b003aebeac1ffc, type: 3}
       propertyPath: sounds.Array.data[0].pitchVariance
@@ -27250,6 +27262,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 471456995020936147, guid: cb3d1608c33cff74b96ebb80b243ac52, type: 3}
+      propertyPath: Mus
+      value: 
+      objectReference: {fileID: 81902167}
     - target: {fileID: 471456995020936172, guid: cb3d1608c33cff74b96ebb80b243ac52, type: 3}
       propertyPath: x
       value: 
@@ -27476,11 +27492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.000000026491378
+      value: -0.00000006088649
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -8.4881185e-10
+      value: -0.0000000019508668
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.y
@@ -27658,7 +27674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.size
@@ -27717,6 +27733,22 @@ PrefabInstance:
       value: Point
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 127157e606889dc449663cebba8afa05, type: 3}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[5].name
+      value: BotaoPapel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2fbce9af7132ee94e91aefa1df099eb9, type: 3}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[6].name
+      value: Botao
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -27737,6 +27769,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[0].volume
       value: 1
       objectReference: {fileID: 0}
@@ -27754,6 +27794,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[6].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
@@ -27838,6 +27886,14 @@ PrefabInstance:
       objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[4].audioMixer
+      value: 
+      objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[5].audioMixer
+      value: 
+      objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[6].audioMixer
       value: 
       objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}

@@ -9,6 +9,7 @@ public class MusicManager : MonoBehaviour {
 
     [SerializeField]
     private string musica;
+    private string menu;
 
     void Awake() {
         foreach (Sound s in sounds) {
@@ -23,6 +24,11 @@ public class MusicManager : MonoBehaviour {
 
     private void Start() {
         Play(musica);
+    }
+
+    private void update()
+    {
+        MusicaMenu();
     }
 
     public void Play(string name) {
@@ -49,5 +55,13 @@ public class MusicManager : MonoBehaviour {
         }
 
         s.source.Stop();
+    }
+
+    public void MusicaMenu()
+    {
+        if(GameState.jogoPausado == true)
+        {
+            Play(menu);
+        }
     }
 }

@@ -13,8 +13,12 @@ public class InterfaceManager : MonoBehaviour
 
     [Header("Primeiro Botão")]
     public GameObject pausePri;
-    public GameObject configPri, confirmaPri;
+    public GameObject configPri, confirmaPri; 
+    
 
+    public SfxManager sfx;
+
+   
     void Update()
     {
         if (Input.GetButtonDown("Debug"))
@@ -30,20 +34,33 @@ public class InterfaceManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel") && !GameState.fimDeJogo)
         {
             if (!GameState.jogoPausado)
+            {
                 Pause();
+                
+            }
+                
             else
+            {
                 Resume();
+            }
+                
         }
+
+        
+
     }
 
     private void Pause() {
+        sfx.Play("Botao");
         blur.SetActive(true);
         pauseMenu.SetActive(true);
         GameState.GerenteEstado(1);
         TrocaSelecao(pausePri);
+       
     }
 
     public void Resume() {
+        sfx.Play("Botao");
         blur.SetActive(false);
         botoes.SetActive(true);
         pauseMenu.SetActive(false);
@@ -56,6 +73,7 @@ public class InterfaceManager : MonoBehaviour
     {
         if (!configuracoesMenu.activeInHierarchy)
         {
+            sfx.Play("Botao");
             configuracoesMenu.SetActive(true);
             pauseMenu.SetActive(false);
             TrocaSelecao(configPri);
@@ -76,14 +94,17 @@ public class InterfaceManager : MonoBehaviour
 
     public void MenuPrincipal()
     {
+        sfx.Play("Botao");
         GameState.GerenteEstado(0);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene(0);
+        
     }
 
     public void Cancelar()
     {
+        sfx.Play("Botao");
         botoes.SetActive(true);
         confirmacao.SetActive(false);
         TrocaSelecao(pausePri);
@@ -93,6 +114,7 @@ public class InterfaceManager : MonoBehaviour
     {
         if (!confirmacao.activeInHierarchy)
         {
+            sfx.Play("Botao");
             confirmacao.SetActive(true);
             botoes.SetActive(false);
             TrocaSelecao(confirmaPri);

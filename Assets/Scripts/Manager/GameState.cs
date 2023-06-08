@@ -14,8 +14,8 @@ public class GameState : MonoBehaviour {
         Pausado,
         Fim
     }
-    
-    
+
+   
 
     private void Awake() {
         estado = EstadoJogo.Gameplay;
@@ -26,6 +26,7 @@ public class GameState : MonoBehaviour {
 
     public static void GerenteEstado(int num) 
     {
+         
         //  Jogo pausado
         if (num == 1) {
             estado = EstadoJogo.Pausado;
@@ -33,7 +34,7 @@ public class GameState : MonoBehaviour {
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-           
+          
         }
 
         else if (num == 2) {

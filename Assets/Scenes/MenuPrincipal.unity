@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1073,6 +1073,7 @@ RectTransform:
   - {fileID: 158228963}
   - {fileID: 797631095}
   - {fileID: 1220930974}
+  - {fileID: 976732550}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1099,6 +1100,7 @@ MonoBehaviour:
   configPri: {fileID: 1199765512}
   creditPri: {fileID: 1081357981}
   jogar: {fileID: 915487022}
+  sfx: {fileID: 976732551}
 --- !u!1 &292917139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,6 +3093,107 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &976732549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976732550}
+  - component: {fileID: 976732551}
+  m_Layer: 0
+  m_Name: Sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &976732550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976732549}
+  m_LocalRotation: {x: 1.4210853e-14, y: 2.5410984e-21, z: -2.5579538e-13, w: 1}
+  m_LocalPosition: {x: 0, y: 451.79105, z: 2878.282}
+  m_LocalScale: {x: 7.9400883, y: 7.9400883, z: 7.9400883}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 288141293}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &976732551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976732549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0aa5a14129bb44e8931ae222a3c234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efeitos:
+  - name: Morte
+    clip: {fileID: 8300000, guid: a801e968269b485469360b5c47486941, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pulo
+    clip: {fileID: 8300000, guid: 06ec47a50a6108140869973788a657e8, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MorteInimigo
+    clip: {fileID: 8300000, guid: bf8c62fa4dfa9294fa02e72d1ec0eb3f, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Point
+    clip: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BotaoPapel
+    clip: {fileID: 8300000, guid: 127157e606889dc449663cebba8afa05, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Botao
+    clip: {fileID: 8300000, guid: 2fbce9af7132ee94e91aefa1df099eb9, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1071701556
 GameObject:
   m_ObjectHideFlags: 0
@@ -5409,7 +5512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -145}
+  m_AnchoredPosition: {x: 0, y: -145.00002}
   m_SizeDelta: {x: 0, y: -277.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1878227430
