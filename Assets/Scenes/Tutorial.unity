@@ -8127,6 +8127,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5786996423612907908, guid: e83077d7556493a40aa6b96ad1016268, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 927653607}
+    - target: {fileID: 5786996423612907908, guid: e83077d7556493a40aa6b96ad1016268, type: 3}
       propertyPath: resp
       value: 
       objectReference: {fileID: 2036929628}
@@ -8764,6 +8768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: robozin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5211117049305444492, guid: 395ade28498385748b34e6c59d7a9f50, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 927653607}
     - target: {fileID: 5211117049305444495, guid: 395ade28498385748b34e6c59d7a9f50, type: 3}
       propertyPath: waypoints
       value: 
@@ -9328,6 +9336,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5786996423612907908, guid: e83077d7556493a40aa6b96ad1016268, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 927653607}
     - target: {fileID: 5786996423612907908, guid: e83077d7556493a40aa6b96ad1016268, type: 3}
       propertyPath: resp
       value: 
@@ -10859,7 +10871,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.0000000025018947, y: 0.9994871, z: -0.03202461, w: -0.00000007808405}
+  m_LocalRotation: {x: -2.97784e-10, y: 0.9994871, z: -0.03202461, w: -0.000000009293824}
   m_LocalPosition: {x: 0.000000786805, y: 58.9, z: 471.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12202,6 +12214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: robozin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5211117049305444492, guid: 395ade28498385748b34e6c59d7a9f50, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 927653607}
     - target: {fileID: 5211117049305444495, guid: 395ade28498385748b34e6c59d7a9f50, type: 3}
       propertyPath: waypoints
       value: 
@@ -17165,9 +17181,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobozinParado
       objectReference: {fileID: 0}
+    - target: {fileID: 5211117049305444492, guid: 1803dc47757baae409103b0a737024cf, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 927653607}
     - target: {fileID: 5754230493646539990, guid: 1803dc47757baae409103b0a737024cf, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5754230493646539990, guid: 1803dc47757baae409103b0a737024cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27456,11 +27476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000006088649
+      value: -0.000000026491378
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0000000019508668
+      value: -8.4881185e-10
       objectReference: {fileID: 0}
     - target: {fileID: 3922675290290039089, guid: b9e0ac687991d734fbf1794b631f6286, type: 3}
       propertyPath: m_LocalRotation.y
@@ -27558,6 +27578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: robozin
       objectReference: {fileID: 0}
+    - target: {fileID: 5211117049305444492, guid: 395ade28498385748b34e6c59d7a9f50, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 927653607}
     - target: {fileID: 5211117049305444495, guid: 395ade28498385748b34e6c59d7a9f50, type: 3}
       propertyPath: waypoints
       value: 
@@ -27634,7 +27658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: sfxSounds.Array.size
@@ -27667,10 +27691,30 @@ PrefabInstance:
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
+      objectReference: {fileID: 8300000, guid: bf8c62fa4dfa9294fa02e72d1ec0eb3f, type: 3}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[2].name
-      value: Pulo
+      value: MorteInimigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].name
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[4].name
+      value: Point
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[0].pitch
@@ -27685,6 +27729,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[0].volume
       value: 1
       objectReference: {fileID: 0}
@@ -27694,6 +27746,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[4].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
@@ -27773,16 +27833,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].audioMixer
+      value: 
+      objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[4].audioMixer
+      value: 
+      objectReference: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[0].spatialBlend
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[1].spatialBlend
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: efeitos.Array.data[2].spatialBlend
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[3].spatialBlend
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149752930, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
+      propertyPath: efeitos.Array.data[4].spatialBlend
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1659497030, guid: bf224d856b4f3154fa8e692ac024e915, type: 3}
       propertyPath: OutputAudioMixerGroup

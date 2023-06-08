@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Sliding : MonoBehaviour {
 
-    public SfxManager sfx;
 
     [Header("Referências")]
+    public SfxManager sfx;
     public Transform orientation;
     public Transform playerObj;
     public CapsuleCollider cc;

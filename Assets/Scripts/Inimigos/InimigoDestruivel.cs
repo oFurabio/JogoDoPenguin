@@ -7,6 +7,8 @@ public class InimigoDestruivel : MonoBehaviour {
     private PlayerMovement pm;
     private Health ph;
     public SfxManager sfx;
+    public float delay = 4f;
+
     private void Start() {
         posicao = transform.position;
         pm = FindObjectOfType<PlayerMovement>();
@@ -21,7 +23,7 @@ public class InimigoDestruivel : MonoBehaviour {
             if (pm.sliding || pm.dashing)
             {
                 pm.Ataque();
-                Invoke(nameof(Respawn), 4);              
+                Invoke(nameof(Respawn), delay);              
                 gameObject.SetActive(false);
                 sfx.Play("MorteInimigo");
 
