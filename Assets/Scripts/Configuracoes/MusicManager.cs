@@ -26,11 +26,6 @@ public class MusicManager : MonoBehaviour {
         Play(musica);
     }
 
-    private void update()
-    {
-        MusicaMenu();
-    }
-
     public void Play(string name) {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
@@ -55,13 +50,5 @@ public class MusicManager : MonoBehaviour {
         }
 
         s.source.Stop();
-    }
-
-    public void MusicaMenu()
-    {
-        if(GameState.jogoPausado == true)
-        {
-            Play(menu);
-        }
     }
 }

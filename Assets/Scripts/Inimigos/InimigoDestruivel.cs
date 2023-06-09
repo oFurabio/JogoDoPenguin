@@ -7,6 +7,7 @@ public class InimigoDestruivel : MonoBehaviour {
     private PlayerMovement pm;
     private Health ph;
     public SfxManager sfx;
+    public int som;
     public float delay = 4f;
 
     private void Start() {
@@ -25,7 +26,10 @@ public class InimigoDestruivel : MonoBehaviour {
                 pm.Ataque();
                 Invoke(nameof(Respawn), delay);              
                 gameObject.SetActive(false);
-                sfx.Play("MorteInimigo");
+                if (som == 1)
+                    sfx.Play("MorteInimigo 1");
+                else
+                    sfx.Play("MorteInimigo 2");
 
             } else {
                 ph.currentHealth--;

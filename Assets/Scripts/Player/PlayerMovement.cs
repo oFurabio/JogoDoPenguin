@@ -59,7 +59,8 @@ public class PlayerMovement : MonoBehaviour
     public MovementState state;
     public bool sliding;
     public bool dashing;
-    private float hInput, vInput;
+    private bool andando;
+    public float hInput, vInput;
     Vector3 moveDirection;
 
     public enum MovementState
@@ -139,8 +140,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if (Input.GetButtonDown("Jump") && !Grounded() && canDouble)
-        {
+        if (Input.GetButtonDown("Jump") && !Grounded() && canDouble) {
            
             SecondaryJump();
         }
@@ -151,16 +151,13 @@ public class PlayerMovement : MonoBehaviour
     private MovementState lastState;
     private bool keepMomentum;
 
-    private void StateHandler()
-    {
-        if (dashing)
-        {
+    private void StateHandler() {
+        if (dashing) {
             state = MovementState.dashando;
             desiredMoveSpeed = dashSpeed;
         }
         //  Modo - Deslizando
-        else if (sliding && Grounded())
-        {
+        else if (sliding && Grounded()) {
             state = MovementState.deslizando;
 
             if (OnSlope() && rb.velocity.y < 0.1f)
@@ -170,20 +167,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //  Modo - Andando
-        else if (Grounded())
-        {
+        else if (Grounded()) {
             state = MovementState.andando;
             desiredMoveSpeed = walkSpeed;
         }
 
         //  Modo - Ar
-        else
-        {
+        else {
             state = MovementState.ar;
         }
 
-        if (vInput == 0 && hInput == 0)
-        {
+        if (vInput == 0 && hInput == 0) {
             StopAllCoroutines();
             moveSpeed = walkSpeed;
             desiredMoveSpeed = moveSpeed;
@@ -249,8 +243,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = desiredMoveSpeed;
     }
 
-    private void MovePlayer()
-    {
+    private void MovePlayer() {
         if (state == MovementState.dashando) return;
 
         //  Calcula a direção do movimento

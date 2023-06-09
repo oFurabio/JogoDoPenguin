@@ -9,11 +9,11 @@ public class InterfaceManager : MonoBehaviour
 {
     [Header("Paineis")]
     public GameObject pauseMenu;
-    public GameObject blur, configuracoesMenu, confirmacao, botoes, developer;
+    public GameObject blur, configuracoesMenu, confirmacao, botoes, developer, controles;
 
     [Header("Primeiro Botão")]
     public GameObject pausePri;
-    public GameObject configPri, confirmaPri; 
+    public GameObject configPri, confirmaPri, controlesPri;
     
 
     public SfxManager sfx;
@@ -31,19 +31,11 @@ public class InterfaceManager : MonoBehaviour
         }
             
 
-        if (Input.GetButtonDown("Cancel") && !GameState.fimDeJogo)
-        {
+        if (Input.GetButtonDown("Cancel") && !GameState.fimDeJogo) {
             if (!GameState.jogoPausado)
-            {
                 Pause();
-                
-            }
-                
             else
-            {
                 Resume();
-            }
-                
         }
 
         
@@ -51,21 +43,19 @@ public class InterfaceManager : MonoBehaviour
     }
 
     private void Pause() {
-        sfx.Play("Botao");
         blur.SetActive(true);
         pauseMenu.SetActive(true);
-        GameState.GerenteEstado(1);
         TrocaSelecao(pausePri);
-       
+
+        GameState.GerenteEstado(1);
     }
 
     public void Resume() {
         sfx.Play("Botao");
+        AtivaPainel(botoes);
+
         blur.SetActive(false);
-        botoes.SetActive(true);
-        pauseMenu.SetActive(false);
-        configuracoesMenu.SetActive(false);
-        confirmacao.SetActive(false);
+
         GameState.GerenteEstado(0);
     }
 
@@ -74,13 +64,13 @@ public class InterfaceManager : MonoBehaviour
         if (!configuracoesMenu.activeInHierarchy)
         {
             sfx.Play("Botao");
-            configuracoesMenu.SetActive(true);
-            pauseMenu.SetActive(false);
+            AtivaPainel(configuracoesMenu);
             TrocaSelecao(configPri);
         }
         else
         {
             pauseMenu.SetActive(true);
+            botoes.SetActive(true);
             configuracoesMenu.SetActive(false);
             TrocaSelecao(pausePri);
         }
@@ -100,6 +90,16 @@ public class InterfaceManager : MonoBehaviour
         Cursor.visible = true;
         SceneManager.LoadScene(0);
         
+    }
+
+    public void Controles() {
+        if (!controles.activeInHierarchy) {
+            AtivaPainel(controles);
+            TrocaSelecao(controlesPri);
+        } else {
+            AtivaPainel(configuracoesMenu);
+            TrocaSelecao(configPri);
+        }
     }
 
     public void Cancelar()
@@ -127,6 +127,17 @@ public class InterfaceManager : MonoBehaviour
             Application.Quit();
         }
 
+    }
+
+    private void AtivaPainel(GameObject go) {
+        pauseMenu.SetActive(false);
+        configuracoesMenu.SetActive(false);
+        confirmacao.SetActive(false);
+        botoes.SetActive(false);
+        developer.SetActive(false);
+        controles.SetActive(false);
+
+        go.SetActive(true);
     }
 
     private void TrocaSelecao(GameObject opcao)

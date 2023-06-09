@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 0}
+  som: 2
   delay: 4
 --- !u!114 &3148902746900763910
 MonoBehaviour:
@@ -222,7 +223,7 @@ MonoBehaviour:
   chao:
     serializedVersion: 2
     m_Bits: 64
-  alcance: 5
+  alcance: 7.5
 --- !u!1 &6534503669648144830
 GameObject:
   m_ObjectHideFlags: 0

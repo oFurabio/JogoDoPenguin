@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimController : MonoBehaviour {
-    Animator anim;
+    private Animator anim;
+    public SfxManager sfx;
 
     int idleCount = 0;
 
@@ -27,6 +28,7 @@ public class AnimController : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(quackKey) && !isQuackActive) {
             anim.SetBool("quack", true);
+            sfx.Play("Quack");
 
             quack1.SetActive(true);
             quack2.SetActive(true);

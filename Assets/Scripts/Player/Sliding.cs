@@ -6,12 +6,12 @@ public class Sliding : MonoBehaviour {
 
 
     [Header("Referências")]
-    public SfxManager sfx;
     public Transform orientation;
     public Transform playerObj;
     public CapsuleCollider cc;
     private Rigidbody rb;
     private PlayerMovement pm;
+    private SfxManager sfx;
     private Dash dash;
 
     [Header("Deslizando")]
@@ -71,14 +71,12 @@ public class Sliding : MonoBehaviour {
         cc.center = deslizando;
         cc.direction = 2;
         sfx.Play("Dash");
+
         if (canDash) {
             canDash = false;
             dash.Dashar();
         } else
-        {
             pm.sliding = true;
-            
-        }
     }
 
     private void SlidingMovement() {
@@ -94,8 +92,7 @@ public class Sliding : MonoBehaviour {
             rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
     }
 
-    public void StopSlide() 
-    {
+    public void StopSlide() {
         pm.sliding = false;
         sfx.StopPlaying("Dash");        
         cc.center = inicial;

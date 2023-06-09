@@ -8,7 +8,6 @@ public class Health : MonoBehaviour {
     public static bool dead = false;
 
     private SfxManager sfx;
-    public MusicManager Sound;
 
     private void Start() {
         dead = false;

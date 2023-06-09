@@ -269,8 +269,8 @@ GameObject:
   - component: {fileID: 1818063303175837356}
   - component: {fileID: 5211117049305444494}
   - component: {fileID: 5211117049305444489}
-  - component: {fileID: 5211117049305444495}
   - component: {fileID: 5211117049305444492}
+  - component: {fileID: 5211117049305444495}
   m_Layer: 0
   m_Name: RobozinPatrulha
   m_TagString: Untagged
@@ -348,20 +348,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7526588, y: 2.0361042, z: 1.7843628}
   m_Center: {x: -0.014524937, y: 0.41153622, z: -0.01449585}
---- !u!114 &5211117049305444495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4940715461637936748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11809127e178b0c40adeb9c47fb596a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  waypoints: {fileID: 0}
 --- !u!114 &5211117049305444492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +360,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90361ad62c46ea143bcc8db377472443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 0}
+  som: 2
+  delay: 4
+--- !u!114 &5211117049305444495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4940715461637936748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11809127e178b0c40adeb9c47fb596a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temDelay: 0
+  segueOPlayer: 1
+  velocidade: 2
+  waitDelay: 3
+  waypoints: {fileID: 0}
 --- !u!1 &5946583759660962314
 GameObject:
   m_ObjectHideFlags: 0
