@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 471456995020936147}
   - component: {fileID: 471456995020936146}
   - component: {fileID: 906468306141987316}
+  - component: {fileID: 471456994879801079}
+  - component: {fileID: 471456994879801080}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -46,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be89dfa67af11d4bbaf7615104986eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mus: {fileID: 0}
 --- !u!114 &471456995020936146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,3 +78,28 @@ MonoBehaviour:
   master: {fileID: 0}
   musica: {fileID: 0}
   sfx: {fileID: 0}
+--- !u!114 &471456994879801079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471456995020936175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53f2fa271f686745a3844c447854fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 0}
+--- !u!114 &471456994879801080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471456995020936175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de89bc6116ca4c46a8c3989ecb6b75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

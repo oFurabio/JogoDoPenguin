@@ -44,7 +44,164 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0aa5a14129bb44e8931ae222a3c234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  efeitos: []
+  efeitos:
+  - name: Morte
+    clip: {fileID: 8300000, guid: a801e968269b485469360b5c47486941, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pulo
+    clip: {fileID: 8300000, guid: 06ec47a50a6108140869973788a657e8, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MorteInimigo
+    clip: {fileID: 8300000, guid: bf8c62fa4dfa9294fa02e72d1ec0eb3f, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Point
+    clip: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BotaoPapel
+    clip: {fileID: 8300000, guid: 127157e606889dc449663cebba8afa05, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Botao
+    clip: {fileID: 8300000, guid: 2fbce9af7132ee94e91aefa1df099eb9, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+--- !u!1 &1179485730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1179485731}
+  - component: {fileID: 1179485732}
+  m_Layer: 0
+  m_Name: Sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1179485731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179485730}
+  m_LocalRotation: {x: -0, y: -0, z: -3.6111178e-35, w: 1}
+  m_LocalPosition: {x: 2.5, y: -0.8999977, z: -149.90002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5948375635043181136}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179485732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179485730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0aa5a14129bb44e8931ae222a3c234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efeitos:
+  - name: Morte
+    clip: {fileID: 8300000, guid: a801e968269b485469360b5c47486941, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pulo
+    clip: {fileID: 8300000, guid: 06ec47a50a6108140869973788a657e8, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MorteInimigo
+    clip: {fileID: 8300000, guid: bf8c62fa4dfa9294fa02e72d1ec0eb3f, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Point
+    clip: {fileID: 8300000, guid: c98f6fe32f8b32a4db11ada05f77c480, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BotaoPapel
+    clip: {fileID: 8300000, guid: 127157e606889dc449663cebba8afa05, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Botao
+    clip: {fileID: 8300000, guid: 2fbce9af7132ee94e91aefa1df099eb9, type: 3}
+    audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &5948375633837403499
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,7 +10250,8 @@ GameObject:
   - component: {fileID: 5948375635043181142}
   - component: {fileID: 5948375635043181141}
   - component: {fileID: 5948375635043181140}
-  m_Layer: 0
+  - component: {fileID: 2036929629}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -10116,6 +10274,7 @@ Transform:
   - {fileID: 5948375635752391954}
   - {fileID: 5948375635410509547}
   - {fileID: 1149752929}
+  - {fileID: 1179485731}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10184,6 +10343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d182b0cf54e7add4cb6207105a748d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1179485732}
   orientation: {fileID: 5948375635752391954}
   playerObj: {fileID: 5948375633756240866}
   cc: {fileID: 5948375635724118262}
@@ -10227,6 +10387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
+  Sound: {fileID: 0}
 --- !u!114 &5948375635043181142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10268,6 +10429,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &2036929629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948375635043181151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69057c539f87c0b42a3b0180031966b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5948375635043181136}
+  teleportObject: {fileID: 0}
+  teleportYThreshold: -10
 --- !u!1 &5948375635394005806
 GameObject:
   m_ObjectHideFlags: 0
@@ -15221,7 +15397,7 @@ GameObject:
   - component: {fileID: 5948375635724118261}
   - component: {fileID: 5948375635724118260}
   - component: {fileID: 5948375635724118259}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VFX
   m_TagString: Player
   m_Icon: {fileID: 0}
