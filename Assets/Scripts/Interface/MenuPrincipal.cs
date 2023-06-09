@@ -23,10 +23,11 @@ public class MenuPrincipal : MonoBehaviour {
     }
 
     public void Config() {
+        sfx.Play("BotaoPapel");
         AtivaPainel(config);
 
         TrocaPrioridade(configPri);
-        sfx.Play("BotaoPapel");
+       
     }
 
     public void Credits() {
@@ -37,8 +38,8 @@ public class MenuPrincipal : MonoBehaviour {
     }
 
     public void Voltar() {
-        AtivaPainel(menu);
         sfx.Play("BotaoPapel");
+        AtivaPainel(menu);
         TrocaPrioridade(jogar);
     }
 
