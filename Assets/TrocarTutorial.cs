@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class TrocarTutorial : MonoBehaviour {
     private GameObject[] tutoriais;
+    public GameObject blur;
 
     private void Awake() {
         int numTutoriais = gameObject.transform.childCount;
@@ -13,13 +14,12 @@ public class TrocarTutorial : MonoBehaviour {
         {
             tutoriais[i] = transform.GetChild(i).gameObject;
         }
-
-        Debug.Log("Número de tutoriais " + tutoriais.Length);
     }
 
     public void Trocas(int i) {
         tutoriais[i].SetActive(true);
         GameState.GerenteEstado(1);
+        blur.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(GetComponentInChildren<Button>().gameObject);
     }

@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     public bool dashing;
     private bool andando;
+    [HideInInspector]
     public float hInput, vInput;
     Vector3 moveDirection;
 

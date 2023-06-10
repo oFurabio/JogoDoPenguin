@@ -49,7 +49,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a801e968269b485469360b5c47486941, type: 3}
     audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
     volume: 1
-    pitch: 1
+    pitch: 0.75
     spatialBlend: 0
     loop: 0
     source: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   - name: MorteInimigo 1
     clip: {fileID: 8300000, guid: ac33650b5abbd9c4ca816bedd581340a, type: 3}
     audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
-    volume: 0.85
+    volume: 0.65
     pitch: 1
     spatialBlend: 0
     loop: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   - name: MorteInimigo 2
     clip: {fileID: 8300000, guid: 43611291816178c4c852fbe4a38c8209, type: 3}
     audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
-    volume: 0.65
+    volume: 0.45
     pitch: 1
     spatialBlend: 0
     loop: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   - name: Dash
     clip: {fileID: 8300000, guid: 70f7455e092a88d4ea4681ec69003ebd, type: 3}
     audioMixer: {fileID: 6788160386691209129, guid: ce394dc258f25d34e8ccc187e07f5db9, type: 2}
-    volume: 1
+    volume: 0.75
     pitch: 1
     spatialBlend: 0
     loop: 1
@@ -10244,6 +10244,8 @@ MonoBehaviour:
   state: 0
   sliding: 0
   dashing: 0
+  hInput: 0
+  vInput: 0
 --- !u!114 &5948375635043181161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10256,7 +10258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d182b0cf54e7add4cb6207105a748d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
   orientation: {fileID: 5948375635752391954}
   playerObj: {fileID: 5948375633756240866}
   cc: {fileID: 5948375635724118262}
@@ -10300,7 +10301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 1
-  Sound: {fileID: 0}
 --- !u!114 &5948375635043181142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10314,6 +10314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snowInteractor: {fileID: 5948375634102291905}
+  aus: {fileID: 0}
 --- !u!114 &5948375635043181141
 MonoBehaviour:
   m_ObjectHideFlags: 0

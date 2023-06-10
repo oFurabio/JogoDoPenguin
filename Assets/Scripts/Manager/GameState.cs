@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour {
         Fim
     }
 
-    private void Awake() {
+    private void Start() {
         estado = EstadoJogo.Gameplay;
         jogoPausado = false;
         fimDeJogo = false;

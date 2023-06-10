@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
 
 public class MusicManager : MonoBehaviour {
     public Sound[] sounds;
+    private AudioSource auSo;
 
     [SerializeField]
     private string musica;
@@ -20,6 +20,8 @@ public class MusicManager : MonoBehaviour {
             s.source.spatialBlend = s.spatialBlend;
             s.source.loop = s.loop;
         }
+
+        auSo = GetComponent<AudioSource>();
     }
 
     private void Start() {

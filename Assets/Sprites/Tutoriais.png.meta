@@ -209,6 +209,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tutoriais_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5bb3d57b0ed1464eab165b36ccf4755
+      internalID: 1877623063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -223,6 +244,7 @@ TextureImporter:
       Tutoriais_0: -1567585106
       Tutoriais_2: -2011870531
       Tutoriais_4: 527978043
+      Tutoriais_5: 1877623063
       Tutoriais_1: -1731910851
       Tutoriais_3: -275512924
   spritePackingTag: 

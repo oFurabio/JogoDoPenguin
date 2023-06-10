@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sliding : MonoBehaviour {
-
-
     [Header("Referências")]
     public Transform orientation;
     public Transform playerObj;
@@ -36,6 +34,7 @@ public class Sliding : MonoBehaviour {
         if (Health.dead)
         {
             vInput = 0f;
+            hInput = 0f;
             StopSlide();
            
         }
@@ -50,6 +49,9 @@ public class Sliding : MonoBehaviour {
 
             if (Input.GetButtonUp("Slide") && pm.sliding)
                 StopSlide();
+
+            if (Input.GetButtonUp("Slide"))
+                sfx.StopPlaying("Dash");
 
             if (vInput == 0f && hInput == 0)
                 StopSlide();
@@ -70,13 +72,14 @@ public class Sliding : MonoBehaviour {
     private void StartSlide() {
         cc.center = deslizando;
         cc.direction = 2;
-        sfx.Play("Dash");
 
         if (canDash) {
             canDash = false;
             dash.Dashar();
         } else
             pm.sliding = true;
+
+        sfx.Play("Dash");
     }
 
     private void SlidingMovement() {
@@ -94,7 +97,6 @@ public class Sliding : MonoBehaviour {
 
     public void StopSlide() {
         pm.sliding = false;
-        sfx.StopPlaying("Dash");        
         cc.center = inicial;
         cc.direction = 1;                      
     }

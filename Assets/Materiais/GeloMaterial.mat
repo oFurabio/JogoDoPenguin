@@ -55,7 +55,7 @@ Material:
     - _Tling: 1
     - _Transparency: 1
     m_Colors:
-    - _Crystal_Color: {r: 0.39684936, g: 0.9245283, b: 0.8724968, a: 0}
+    - _Crystal_Color: {r: 0.39684933, g: 0.9245283, b: 0.8724968, a: 1}
     - _Displacement_Direction: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _Emission_Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
