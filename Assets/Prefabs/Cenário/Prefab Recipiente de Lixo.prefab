@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3183064576721868501}
   - component: {fileID: 849055076049887775}
   - component: {fileID: 9143928806804557903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Prefab Recipiente de Lixo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

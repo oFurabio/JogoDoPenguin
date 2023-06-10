@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5269807096322484049}
   - component: {fileID: 7982325687840314267}
   - component: {fileID: 1445550621262922037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Prefab Lixo Reciclagem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

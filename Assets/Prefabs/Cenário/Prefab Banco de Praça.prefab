@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1026534315667631159}
   - component: {fileID: 1873337074008903155}
   - component: {fileID: 1873337074008903154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "Prefab Banco de Pra\xE7a"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

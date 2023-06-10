@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1448193005597720616}
   - component: {fileID: 3746419382789305570}
   - component: {fileID: 4936893023694103406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Prefab Banco de Concreto
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3063930501649331492}
   - component: {fileID: 964249463140516334}
   - component: {fileID: 1918575663191612076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cristalzinho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
