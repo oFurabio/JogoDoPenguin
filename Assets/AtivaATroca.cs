@@ -10,6 +10,7 @@ public class AtivaATroca : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             tt.Trocas(int.Parse(gameObject.name));
+            gameObject.SetActive(false);
         }
     }
 }

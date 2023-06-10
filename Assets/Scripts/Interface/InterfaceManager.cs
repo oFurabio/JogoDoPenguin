@@ -5,8 +5,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
-public class InterfaceManager : MonoBehaviour
-{
+public class InterfaceManager : MonoBehaviour {
+    public TrocarTutorial tt;
+    
     [Header("Paineis")]
     public GameObject pauseMenu;
     public GameObject blur, configuracoesMenu, confirmacao, botoes, developer, controles;
@@ -52,6 +53,7 @@ public class InterfaceManager : MonoBehaviour
 
     public void Resume() {
         sfx.Play("Botao");
+        tt.DesativaTodos();
         AtivaPainel(botoes);
 
         blur.SetActive(false);
@@ -89,7 +91,6 @@ public class InterfaceManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene(0);
-        
     }
 
     public void Controles() {

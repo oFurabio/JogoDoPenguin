@@ -6,11 +6,13 @@ using UnityEngine.Events;
 public class StopBola : MonoBehaviour {
     public UnityEvent bola;
     public float limit;
-    
+
+    private Vector3 pose;
     private Rigidbody rb;
     private bool parou = false;
 
     private void Start() {
+        pose = transform.position;
         rb = GetComponent<Rigidbody>();
         bola.Invoke();
     }
@@ -21,6 +23,12 @@ public class StopBola : MonoBehaviour {
         {
             parou = true;
             bola.Invoke();
+        }
+
+        if (Health.dead)
+        {
+            transform.position = pose;
+            Debug.Log($"voltando ${bola} pro lugar");
         }
     }
 

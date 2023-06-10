@@ -23,4 +23,10 @@ public class TrocarTutorial : MonoBehaviour {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(GetComponentInChildren<Button>().gameObject);
     }
+
+    public void DesativaTodos() {
+        for (int i = 0; i < tutoriais.Length; i++) {
+        tutoriais[i].SetActive(false);
+        }
+    }
 }
