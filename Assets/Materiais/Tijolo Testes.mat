@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7446830281933721219
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: metal 1
-  m_Shader: {fileID: -6465566751694194690, guid: 4aa46d33b0afb5e49bb0703218e42e0e, type: 3}
+  m_Name: Tijolo Testes
+  m_Shader: {fileID: -6465566751694194690, guid: 5faef66d0db616e4cbdc3bd26538b3d6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3460aa898465c6e44af7aa4edb89ca12, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -60,12 +73,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_e9560f427d99431ea879e81fd454ffda_Texture_1:
-        m_Texture: {fileID: 0}
+    - _SideTexture:
+        m_Texture: {fileID: 2800000, guid: d72125f86b724be42aafb60cff4dc13c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture:
+        m_Texture: {fileID: 2800000, guid: d72125f86b724be42aafb60cff4dc13c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -84,8 +101,8 @@ Material:
     m_Floats:
     - Vector1_38BD3441: 0
     - Vector1_CF8B0D8D: 8
-    - Vector1_ED5ABFD9: 0.192
-    - Vector1_F3F6B787: 0.074
+    - Vector1_ED5ABFD9: 0
+    - Vector1_F3F6B787: 0.16
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -106,6 +123,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Saturation: 0
+    - _Scale: 0.24
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -114,24 +133,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_28180829: {r: 0.54901963, g: 0.14529836, b: 0.13333331, a: 1}
-    - Color_57D43A16: {r: 1, g: 0.7294118, b: 0.7445199, a: 0}
-    - Color_F689E8B9: {r: 0.8301887, g: 0.2700555, b: 0.23104309, a: 1}
+    - Color_28180829: {r: 0.6980392, g: 0.6980392, b: 0.6980392, a: 1}
+    - Color_57D43A16: {r: 0.95283014, g: 0.95283014, b: 0.95283014, a: 0}
+    - Color_F689E8B9: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorMultiplier: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &6765057304525216177
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5

@@ -7,23 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Agua 1
-  m_Shader: {fileID: -6465566751694194690, guid: c27915d8678853a46888ec4470cf707f, type: 3}
+  m_Name: Agua Customizavel
+  m_Shader: {fileID: -6465566751694194690, guid: 58fc8f50c4d937b40a58f49861e0f701, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: eb4e55919f4709848b9708aac10f2007, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -38,17 +34,27 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Ambient_Occlusion: 0
-    - _QueueControl: 0
+    - _Depth_Fade_Distance: 0.46
+    - _Distancia_Borda: 0.66
+    - _Distancia_Horizonte: 3.96
+    - _Distancia_da_Borda: 0.345
+    - _Distancia_do_Horizonte: 2.6
+    - _Escala: 1.44
+    - _Escala_da_Refracao: 3.01
+    - _Forca_da_Refracao: 0.04
+    - _Passos_Posterize: 1
+    - _QueueControl: 1
     - _QueueOffset: 0
-    - _Speed: 0.1
-    - _Transparency: 0.75
+    - _Velocidade_da_Refracao: 0.57
     m_Colors:
-    - _SeamColor: {r: 0.1509434, g: 0.6037736, b: 0.42607275, a: 1}
-    - _Tiling: {r: 1, g: 3.86, b: 0, a: 0}
-    - _WaterColor: {r: 0.3614582, g: 0.22745098, b: 0.50980395, a: 1}
+    - _Cor_Fundo: {r: 0, g: 0.37199998, b: 0.5, a: 0.7294118}
+    - _Cor_Horizonte: {r: 0.8867924, g: 0.52254397, b: 0.071110725, a: 0}
+    - _Cor_Superficie: {r: 0.63372195, g: 0.8720171, b: 0.9528302, a: 1}
+    - _Cor_da_Superficie: {r: 0.56376827, g: 0.90830356, b: 0.9716981, a: 1}
+    - _Cor_do_Fundo: {r: 0.06007471, g: 0.37911215, b: 0.4716981, a: 1}
+    - _Cor_do_Horizonte: {r: 0.8867924, g: 0.42256552, b: 0, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &4157627369079501388
+--- !u!114 &5532070469438840605
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

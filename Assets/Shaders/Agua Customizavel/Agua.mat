@@ -7,9 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Agua 2
+  m_Name: Agua
   m_Shader: {fileID: -6465566751694194690, guid: c27915d8678853a46888ec4470cf707f, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _TIPO_DE_MOVIMENTO_SENO
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,7 +21,7 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
+    - _Textura:
         m_Texture: {fileID: 2800000, guid: eb4e55919f4709848b9708aac10f2007, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -38,15 +39,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Ambient_Occlusion: 0
+    - _Aplicar_Espuma: 1
+    - _Escala_da_Textura: 0.15
+    - _Habilitar_Bordas: 1
+    - _Habilitar_Movimento: 0
+    - _Habilitar_Transparencia: 0
+    - _Oclusao_de_Ambiente: 0
+    - _Profundidade: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.1
-    - _Transparency: 0.75
+    - _Suavidade: 0
+    - _TIPO_DE_MOVIMENTO: 0
+    - _Velocidade_X: 0.3
+    - _Velocidade_Y: 0.1
     m_Colors:
-    - _SeamColor: {r: 0.1509434, g: 0.6037736, b: 0.42607275, a: 1}
-    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
-    - _WaterColor: {r: 0.3614582, g: 0.22745098, b: 0.50980395, a: 1}
+    - _Cor_da_Agua: {r: 0.058823504, g: 0.37254897, b: 0.5372549, a: 1}
+    - _Cor_da_Espuma: {r: 0.49411762, g: 0.8784314, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4157627369079501388
 MonoBehaviour:
