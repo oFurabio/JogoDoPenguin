@@ -335,8 +335,7 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    public Vector3 GetSlopeMoveDirection(Vector3 direction)
-    {
+    public Vector3 GetSlopeMoveDirection(Vector3 direction) {
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
